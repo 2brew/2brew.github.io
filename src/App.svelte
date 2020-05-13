@@ -1,11 +1,15 @@
 <script>
-	export let name;
+	import Router from 'svelte-spa-router'
+  import routes from './routes';
 </script>
 
-<main>
-AAAAAAAAA - {name}
-</main>
+ <div class="page">
+		<Router {routes}/>
+ </div>
 
 <style>
-
+	.page {
+		max-width: 600px;
+		margin: 0 auto;
+	}
 </style>
