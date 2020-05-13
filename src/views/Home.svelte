@@ -42,7 +42,7 @@ const systems = [
 {#each systems as item}
   <div class="item">
     <a class="system-button" href="#/{item.url}" title={item.name}>
-      <img class="system-icon" src={`icons/${item.icon}.svg`} alt={item.name}>
+      <img class="system-icon" src={`/public/icons/${item.icon}.svg`} alt={item.name}>
       
       <div class="system-name">{item.name}</div>
     </a>
