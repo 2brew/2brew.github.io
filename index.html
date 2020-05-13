@@ -11,6 +11,11 @@
 	<link rel='stylesheet' href='/public/build/bundle.css'>
 
 	<script defer src='/public/build/bundle.js'></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js');
+		}
+	</script>
 </head>
 
 <body>
