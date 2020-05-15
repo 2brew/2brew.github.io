@@ -1,5 +1,6 @@
 :root {
-  --default-text-color: #333;
+	--default-text-color: #333;
+	--default-bg-color: #f9f9fa;
 }
 
 /* RESET */
@@ -37,8 +38,6 @@ html, body {
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	background: var(--default-bg-color);
 	font-family: Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }

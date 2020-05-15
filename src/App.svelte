@@ -1,6 +1,10 @@
 <script>
 	import Router from 'svelte-spa-router'
-  import routes from './routes';
+	import {onMount} from 'svelte';
+	import routes from './routes';
+	import {fetchRecipes} from './store/recipes.js';
+
+	onMount(() => fetchRecipes());
 </script>
 
  <div class="page">
