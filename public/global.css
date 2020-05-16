@@ -1,6 +1,7 @@
 :root {
 	--default-text-color: #333;
 	--default-bg-color: #f9f9fa;
+	--error-color: #f56c6c;
 }
 
 /* RESET */

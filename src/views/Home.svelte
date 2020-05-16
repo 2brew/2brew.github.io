@@ -1,10 +1,20 @@
 <script>
 const systems = [
-  {name: 'Аэропресс', url: 'aero-press', icon: 'aero-press'},
+  {name: 'Аэропресс', url: 'aeropress', icon: 'aeropress'},
   {name: 'V60', url: 'v60', icon: 'v60'},
   {name: 'Мока', url: 'moka', icon: 'moka'}
 ]
 </script>
+
+{#each systems as item}
+  <div class="item">
+    <a class="system-button" href="#/{item.url}" title={item.name}>
+      <img class="system-icon" src={`/public/icons/${item.icon}.svg`} alt={item.name}>
+      
+      <div class="system-name">{item.name}</div>
+    </a>
+  </div>
+{/each}
 
 <style>
   .item {
@@ -27,7 +37,8 @@ const systems = [
     background: rgba(0,0,0, 0.04);
   }
   .system-icon {
-    width: 80%;
+    width: 50%;
+    margin: 14px;
     display: block;
   }
   .system-name {
@@ -35,17 +46,6 @@ const systems = [
     text-align: center;
     display: block;
     font-size: 20px;
-    padding: 10px 0;
+    padding: 15px 0;
   }
 </style>
-
-{#each systems as item}
-  <div class="item">
-    <a class="system-button" href="#/{item.url}" title={item.name}>
-      <img class="system-icon" src={`/public/icons/${item.icon}.svg`} alt={item.name}>
-      
-      <div class="system-name">{item.name}</div>
-    </a>
-  </div>
-{/each}
-

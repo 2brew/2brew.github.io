@@ -29,6 +29,7 @@ export async function requestEndpoint(endpoint, options={}) {
  * @param {Object} store
  */
 export async function remote(endpoint, options={}, {set}) {
+  set({value: null, error: null, isFetching: true});
   const result = await requestEndpoint(endpoint, options);
   if (result.error) {
     set({value: null, error: result.error, isFetching: false});

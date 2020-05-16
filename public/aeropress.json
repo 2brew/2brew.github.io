@@ -1,0 +1,42 @@
+[
+  {
+    "name": "standrard",
+    "title": "Стандартный", 
+    "ingridients": {
+      "coffee": 16,
+      "water": 260,
+      "grind": 2,
+      "temp": 90,
+      "inverted": false,
+      "time": 120
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 10
+      },
+      {
+        "type": "stir",
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 25
+      },
+      {
+        "type": "pour",
+        "amount": 200,
+        "time": 20
+      },
+      {
+        "type": "place",
+        "time": 5
+      },
+      {
+        "type": "press",
+        "time": 55
+      }
+    ]
+  }
+]

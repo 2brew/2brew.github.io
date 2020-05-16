@@ -1,10 +1,6 @@
 <script>
+  import Error from '../components/Error.svelte';
 
 </script>
 
-<style>
-</style>
-
-<p>
-  404: Not found
-</p>
+<Error error={{response: {status: 404, statusText: 'Not Found'}}}/>
