@@ -27,6 +27,7 @@
     background: #fef0f0;
     width: 100%;
     padding: 20px 30px;
+    margin: 5px 10px;
     border-radius: 10px;
   }
   .heading{

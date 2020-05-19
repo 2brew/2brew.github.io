@@ -6,6 +6,6 @@ import NotFound from './views/NotFound.svelte';
 export default {
   '/': Home,
   '/:type': Recipes,
-  '/:type/:id': Timer,
+  '/:type/:name': Timer,
   '*': NotFound
 };

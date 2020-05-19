@@ -27,15 +27,17 @@ export async function requestEndpoint(endpoint, options={}) {
  * @param {String} endpoint
  * @param {Object} options
  * @param {Object} store
+ * @param {String} type
  */
-export async function remote(endpoint, options={}, {set}) {
-  set({value: null, error: null, isFetching: true});
+export async function remote(endpoint, options={}, {set}, type) {
+  set({[type]: null, error: null, isFetching: true});
   const result = await requestEndpoint(endpoint, options);
   if (result.error) {
-    set({value: null, error: result.error, isFetching: false});
+    set({[type]: null, error: result.error, isFetching: false});
   } else {
-    set({value: result.data, error: null, isFetching: false});
+    set({[type]: result.data, error: null, isFetching: false});
   }
+  return result;
 }
 
 /**
@@ -45,7 +47,9 @@ export async function remote(endpoint, options={}, {set}) {
  */
 export function createRemoteData() {
   return {
-    value: null,
+    aeropress: null,
+    v60: null,
+    moka: null,
     error: null,
     isFetching: true
   };

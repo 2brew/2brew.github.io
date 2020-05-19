@@ -1,8 +1,14 @@
 <script>
-  import {link} from 'svelte-spa-router'
+  import {link} from 'svelte-spa-router';
+  
   import Error from '../components/Error.svelte';
-  import {toMSS} from '../utils/time'
+  import Back from '../components/Back.svelte';
+  import {toMSS, resolveIcon, getGrindLevel} from '../utils/common';
   import {fetchRecipes, recipes} from '../store/recipes';
+
+  import time from '../assets/icons/time.svg'
+  import coffee from '../assets/icons/coffee.svg'
+  import grind from '../assets/icons/grind.svg'
   
   export let params = {};
 
@@ -10,12 +16,34 @@
     fetchRecipes(params.type);
   }
 </script>
+<Back href="/"/>
+{#if $recipes.error}
+  <Error error={$recipes.error}/>
+{:else if $recipes.isFetching}
+  Loading...
+{:else}
+<div class="list">
+  {#each $recipes[params.type] as recipe}
+    <a class="recipe-button" href="/{params.type}/{recipe.name}" use:link>
+      <div class="recipe-icon">
+        {@html resolveIcon(params.type)}
+      </div>
+      <div class="recipe-data">
+          <div class="recipe-name">{recipe.title}</div>
+          <div class="recipe-ingridients">
+            <i>{@html time}</i><div class="ingridient-data">{toMSS(recipe.ingridients.time)}</div>
+            <i>{@html coffee}</i><div class="ingridient-data">{recipe.ingridients.coffee}g</div>
+            <i>{@html grind}</i><div class="ingridient-data">{getGrindLevel(recipe.ingridients.grind)}</div>
+            <i></i><div class="ingridient-data">{recipe.ingridients.temp}°</div>
+          </div>
+        </div>
+    </a>
+  {/each}
+</div>
+{/if}
 
 <style>
-  .list {
-    padding: 10px 0;
-  }
-  .recipe {
+  .recipe-button {
     width: 100%;
     padding: 15px 10px;
     margin: 10px;
@@ -42,25 +70,14 @@
       font-size: 13px;
       margin-top: 10px
   }
+  i {
+    display: block;
+    height: 14px;
+    float: left;
+    margin-right: 8px;
+  }
+  .ingridient-data {
+    float: left;
+    margin-right: 15px;
+  }
 </style>
-<div class="list">
-  {#if $recipes.error}
-    <Error error={$recipes.error}/>
-  {:else if $recipes.isFetching}
-    Loading...
-  {:else}
-    {#each $recipes.value as recipe}
-      <a class="recipe" href="/{params.type}/{recipe.name}" use:link>
-        <img class="recipe-icon" src={`/public/icons/${params.type}.svg`} alt={recipe.name}>
-        <div class="recipe-data">
-            <div class="recipe-name">{recipe.title}</div>
-            <div class="recipe-ingridients">
-              {toMSS(recipe.ingridients.time)}
-            </div>
-          </div>
-      </a>
-    {/each}
-  {/if}
-</div>
-
-

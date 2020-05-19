@@ -1,16 +1,20 @@
 <script>
-const systems = [
-  {name: 'Аэропресс', url: 'aeropress', icon: 'aeropress'},
-  {name: 'V60', url: 'v60', icon: 'v60'},
-  {name: 'Мока', url: 'moka', icon: 'moka'}
-]
+  import {resolveIcon} from '../utils/common';
+
+  const systems = [
+    {name: 'AeroPress', url: 'aeropress', icon: resolveIcon('aeropress')},
+    {name: 'V60', url: 'v60', icon: resolveIcon('v60')},
+    {name: 'Moka', url: 'moka', icon: resolveIcon('moka')}
+  ];
+
 </script>
 
 {#each systems as item}
   <div class="item">
     <a class="system-button" href="#/{item.url}" title={item.name}>
-      <img class="system-icon" src={`/public/icons/${item.icon}.svg`} alt={item.name}>
-      
+      <div class="system-icon">
+        {@html item.icon}
+      </div>
       <div class="system-name">{item.name}</div>
     </a>
   </div>
