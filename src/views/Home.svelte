@@ -1,10 +1,10 @@
 <script>
-  import {resolveIcon} from '../utils/common';
+  import {resolveSystemIcon} from '../utils/common';
 
   const systems = [
-    {name: 'AeroPress', url: 'aeropress', icon: resolveIcon('aeropress')},
-    {name: 'V60', url: 'v60', icon: resolveIcon('v60')},
-    {name: 'Moka', url: 'moka', icon: resolveIcon('moka')}
+    {name: 'AeroPress', url: 'aeropress', icon: resolveSystemIcon('aeropress')},
+    {name: 'V60', url: 'v60', icon: resolveSystemIcon('v60')},
+    {name: 'Moka', url: 'moka', icon: resolveSystemIcon('moka')}
   ];
 
 </script>

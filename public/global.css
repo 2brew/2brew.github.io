@@ -2,6 +2,7 @@
 	--default-text-color: #333;
 	--default-bg-color: #f9f9fa;
 	--error-color: #f56c6c;
+	--active-color: #87f56c;
 }
 
 /* RESET */
@@ -50,4 +51,7 @@ html, body {
 body {
 	background: var(--default-bg-color);
 	font-family: Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+div {
+	box-sizing: border-box;
 }

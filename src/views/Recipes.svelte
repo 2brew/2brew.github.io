@@ -3,7 +3,7 @@
   
   import Error from '../components/Error.svelte';
   import Back from '../components/Back.svelte';
-  import {toMSS, resolveIcon, getGrindLevel} from '../utils/common';
+  import {toMSS, resolveSystemIcon, getGrindLevel} from '../utils/common';
   import {fetchRecipes, recipes} from '../store/recipes';
 
   import time from '../assets/icons/time.svg'
@@ -26,7 +26,7 @@
   {#each $recipes[params.type] as recipe}
     <a class="recipe-button" href="/{params.type}/{recipe.name}" use:link>
       <div class="recipe-icon">
-        {@html resolveIcon(params.type)}
+        {@html resolveSystemIcon(params.type)}
       </div>
       <div class="recipe-data">
           <div class="recipe-name">{recipe.title}</div>
