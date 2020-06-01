@@ -6,7 +6,8 @@ import {fetchRecipes, recipes} from './recipes';
 const noSleep = new NoSleep();
 let interval;
 
-const tick = new Audio('/public/tick.mp3');
+const stage = new Audio('/public/audio/stage.wav');
+const end = new Audio('/public/audio/end.wav');
 
 export const recipe = writable({
   steps: [],
@@ -49,6 +50,10 @@ export const startTimer = (initialStep = 0, time) => {
       let nextTime = ct.time;
       if (nextTime > 0) {
         nextTime = nextTime - 1;
+        if (nextTime < 4) {
+          const tick = new Audio('/public/audio/tick.wav');
+          tick.play();
+        }
         timer.set({time: nextTime, step: ct.step});
         return;
       }
@@ -56,10 +61,10 @@ export const startTimer = (initialStep = 0, time) => {
         clearInterval(interval);
         timer.set({time: null, step: null, done: true});
         noSleep.disable();
-        tick.play();
+        end.play();
       } else {
         timer.set({time: current.steps[ct.step+1].time, step: ct.step+1});
-        tick.play();
+        stage.play();
       }
     }, 1000);
   } else {

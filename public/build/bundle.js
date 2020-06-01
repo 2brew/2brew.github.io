@@ -1763,15 +1763,15 @@ var app = (function () {
     			t0 = space();
     			div1 = element("div");
     			t1 = text(t1_value);
-    			attr_dev(div0, "class", "system-icon svelte-a8e2vy");
-    			add_location(div0, file, 23, 6, 673);
-    			attr_dev(div1, "class", "system-name svelte-a8e2vy");
-    			add_location(div1, file, 26, 6, 744);
-    			attr_dev(a, "class", "system-button svelte-a8e2vy");
+    			attr_dev(div0, "class", "system-icon svelte-16xmapw");
+    			add_location(div0, file, 23, 6, 676);
+    			attr_dev(div1, "class", "system-name svelte-16xmapw");
+    			add_location(div1, file, 26, 6, 747);
+    			attr_dev(a, "class", "system-button bh svelte-16xmapw");
     			attr_dev(a, "href", a_href_value = "#/" + /*item*/ ctx[3].url);
     			attr_dev(a, "title", a_title_value = tt(/*$translations*/ ctx[0], /*item*/ ctx[3].name));
     			add_location(a, file, 22, 4, 584);
-    			attr_dev(div2, "class", "item svelte-a8e2vy");
+    			attr_dev(div2, "class", "item svelte-16xmapw");
     			add_location(div2, file, 21, 2, 561);
     		},
     		m: function mount(target, anchor) {
@@ -1829,8 +1829,8 @@ var app = (function () {
     			t0 = space();
     			div = element("div");
     			t1 = text(t1_value);
-    			attr_dev(div, "class", "lang svelte-a8e2vy");
-    			add_location(div, file, 31, 0, 833);
+    			attr_dev(div, "class", "lang bh svelte-16xmapw");
+    			add_location(div, file, 31, 0, 836);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2052,7 +2052,7 @@ var app = (function () {
     			p = element("p");
     			t0 = text(t0_value);
     			t1 = text(t1_value);
-    			attr_dev(p, "class", "info svelte-15qpwmj");
+    			attr_dev(p, "class", "info svelte-bagxe1");
     			add_location(p, file$1, 17, 4, 318);
     		},
     		m: function mount(target, anchor) {
@@ -2106,9 +2106,9 @@ var app = (function () {
     			if_block0.c();
     			t1 = space();
     			if (if_block1) if_block1.c();
-    			attr_dev(div0, "class", "heading svelte-15qpwmj");
+    			attr_dev(div0, "class", "heading svelte-bagxe1");
     			add_location(div0, file$1, 8, 2, 136);
-    			attr_dev(div1, "class", "error svelte-15qpwmj");
+    			attr_dev(div1, "class", "error svelte-bagxe1");
     			add_location(div1, file$1, 7, 0, 114);
     		},
     		l: function claim(nodes) {
@@ -2241,10 +2241,10 @@ var app = (function () {
     			div = element("div");
     			a = element("a");
     			t = text("❮");
-    			attr_dev(a, "class", "back-button svelte-1rux2qq");
+    			attr_dev(a, "class", "back-button b bh svelte-25fidq");
     			attr_dev(a, "href", a_href_value = `#${/*href*/ ctx[0]}`);
     			add_location(a, file$2, 15, 2, 298);
-    			attr_dev(div, "class", "back svelte-1rux2qq");
+    			attr_dev(div, "class", "back svelte-25fidq");
     			add_location(div, file$2, 14, 0, 277);
     		},
     		l: function claim(nodes) {
@@ -2668,31 +2668,31 @@ var app = (function () {
     			t10 = text(t10_value);
     			t11 = text("°");
     			t12 = space();
-    			attr_dev(div0, "class", "recipe-icon svelte-xohxp8");
-    			add_location(div0, file$3, 28, 6, 853);
-    			attr_dev(div1, "class", "recipe-name svelte-xohxp8");
-    			add_location(div1, file$3, 32, 10, 981);
-    			attr_dev(i0, "class", "svelte-xohxp8");
-    			add_location(i0, file$3, 34, 12, 1082);
-    			attr_dev(div2, "class", "ingridient-data svelte-xohxp8");
-    			add_location(div2, file$3, 34, 31, 1101);
-    			attr_dev(i1, "class", "svelte-xohxp8");
-    			add_location(i1, file$3, 35, 12, 1181);
-    			attr_dev(div3, "class", "ingridient-data svelte-xohxp8");
-    			add_location(div3, file$3, 35, 33, 1202);
-    			attr_dev(i2, "class", "svelte-xohxp8");
-    			add_location(i2, file$3, 36, 12, 1308);
-    			attr_dev(div4, "class", "ingridient-data svelte-xohxp8");
-    			add_location(div4, file$3, 36, 32, 1328);
-    			attr_dev(i3, "class", "svelte-xohxp8");
-    			add_location(i3, file$3, 37, 12, 1432);
-    			attr_dev(div5, "class", "ingridient-data svelte-xohxp8");
-    			add_location(div5, file$3, 37, 19, 1439);
-    			attr_dev(div6, "class", "recipe-ingridients svelte-xohxp8");
-    			add_location(div6, file$3, 33, 10, 1037);
-    			attr_dev(div7, "class", "recipe-data svelte-xohxp8");
-    			add_location(div7, file$3, 31, 6, 945);
-    			attr_dev(a, "class", "recipe-button svelte-xohxp8");
+    			attr_dev(div0, "class", "recipe-icon svelte-1u9j7g");
+    			add_location(div0, file$3, 28, 6, 856);
+    			attr_dev(div1, "class", "recipe-name svelte-1u9j7g");
+    			add_location(div1, file$3, 32, 10, 984);
+    			attr_dev(i0, "class", "svelte-1u9j7g");
+    			add_location(i0, file$3, 34, 12, 1085);
+    			attr_dev(div2, "class", "ingridient-data svelte-1u9j7g");
+    			add_location(div2, file$3, 34, 31, 1104);
+    			attr_dev(i1, "class", "svelte-1u9j7g");
+    			add_location(i1, file$3, 35, 12, 1184);
+    			attr_dev(div3, "class", "ingridient-data svelte-1u9j7g");
+    			add_location(div3, file$3, 35, 33, 1205);
+    			attr_dev(i2, "class", "svelte-1u9j7g");
+    			add_location(i2, file$3, 36, 12, 1311);
+    			attr_dev(div4, "class", "ingridient-data svelte-1u9j7g");
+    			add_location(div4, file$3, 36, 32, 1331);
+    			attr_dev(i3, "class", "svelte-1u9j7g");
+    			add_location(i3, file$3, 37, 12, 1435);
+    			attr_dev(div5, "class", "ingridient-data svelte-1u9j7g");
+    			add_location(div5, file$3, 37, 19, 1442);
+    			attr_dev(div6, "class", "recipe-ingridients svelte-1u9j7g");
+    			add_location(div6, file$3, 33, 10, 1040);
+    			attr_dev(div7, "class", "recipe-data svelte-1u9j7g");
+    			add_location(div7, file$3, 31, 6, 948);
+    			attr_dev(a, "class", "recipe-button bh svelte-1u9j7g");
     			attr_dev(a, "href", a_href_value = "/" + /*params*/ ctx[0].type + "/" + /*recipe*/ ctx[3].name);
     			add_location(a, file$3, 27, 4, 776);
     		},
@@ -3099,7 +3099,8 @@ var app = (function () {
     const noSleep = new src();
     let interval;
 
-    const tick = new Audio('/public/tick.mp3');
+    const stage = new Audio('/public/audio/stage.wav');
+    const end = new Audio('/public/audio/end.wav');
 
     const recipe = writable({
       steps: [],
@@ -3142,6 +3143,10 @@ var app = (function () {
           let nextTime = ct.time;
           if (nextTime > 0) {
             nextTime = nextTime - 1;
+            if (nextTime < 4) {
+              const tick = new Audio('/public/audio/tick.wav');
+              tick.play();
+            }
             timer.set({time: nextTime, step: ct.step});
             return;
           }
@@ -3149,10 +3154,10 @@ var app = (function () {
             clearInterval(interval);
             timer.set({time: null, step: null, done: true});
             noSleep.disable();
-            tick.play();
+            end.play();
           } else {
             timer.set({time: current.steps[ct.step+1].time, step: ct.step+1});
-            tick.play();
+            stage.play();
           }
         }, 1000);
       } else {
@@ -3311,35 +3316,35 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(i0, "class", "svelte-1yqat4i");
-    			add_location(i0, file$4, 58, 42, 1663);
-    			attr_dev(div0, "class", "recipe-pad recipe-coffee svelte-1yqat4i");
+    			attr_dev(i0, "class", "svelte-2u5ddr");
+    			add_location(i0, file$4, 58, 44, 1665);
+    			attr_dev(div0, "class", "recipe-pad b recipe-coffee svelte-2u5ddr");
     			add_location(div0, file$4, 58, 4, 1625);
-    			attr_dev(i1, "class", "svelte-1yqat4i");
-    			add_location(i1, file$4, 59, 41, 1791);
-    			attr_dev(div1, "class", "recipe-pad recipe-water svelte-1yqat4i");
-    			add_location(div1, file$4, 59, 4, 1754);
-    			attr_dev(i2, "class", "svelte-1yqat4i");
-    			add_location(i2, file$4, 60, 41, 1918);
-    			add_location(span, file$4, 60, 61, 1938);
-    			attr_dev(div2, "class", "recipe-pad recipe-grind svelte-1yqat4i");
-    			add_location(div2, file$4, 60, 4, 1881);
-    			attr_dev(div3, "class", "recipe-pad recipe-temp svelte-1yqat4i");
-    			add_location(div3, file$4, 61, 4, 2019);
-    			attr_dev(i3, "class", "svelte-1yqat4i");
-    			add_location(i3, file$4, 62, 40, 2129);
-    			attr_dev(div4, "class", "recipe-pad recipe-time svelte-1yqat4i");
-    			add_location(div4, file$4, 62, 4, 2093);
-    			attr_dev(div5, "class", "recipe-info svelte-1yqat4i");
+    			attr_dev(i1, "class", "svelte-2u5ddr");
+    			add_location(i1, file$4, 59, 43, 1795);
+    			attr_dev(div1, "class", "recipe-pad b recipe-water svelte-2u5ddr");
+    			add_location(div1, file$4, 59, 4, 1756);
+    			attr_dev(i2, "class", "svelte-2u5ddr");
+    			add_location(i2, file$4, 60, 43, 1924);
+    			add_location(span, file$4, 60, 63, 1944);
+    			attr_dev(div2, "class", "recipe-pad b recipe-grind svelte-2u5ddr");
+    			add_location(div2, file$4, 60, 4, 1885);
+    			attr_dev(div3, "class", "recipe-pad b recipe-temp svelte-2u5ddr");
+    			add_location(div3, file$4, 61, 4, 2025);
+    			attr_dev(i3, "class", "svelte-2u5ddr");
+    			add_location(i3, file$4, 62, 42, 2139);
+    			attr_dev(div4, "class", "recipe-pad b recipe-time svelte-2u5ddr");
+    			add_location(div4, file$4, 62, 4, 2101);
+    			attr_dev(div5, "class", "recipe-info svelte-2u5ddr");
     			add_location(div5, file$4, 57, 2, 1595);
-    			attr_dev(div6, "class", "timer-content svelte-1yqat4i");
-    			add_location(div6, file$4, 90, 6, 3068);
-    			attr_dev(div7, "class", "timer svelte-1yqat4i");
-    			add_location(div7, file$4, 75, 4, 2592);
-    			attr_dev(div8, "class", "timer-wrapper svelte-1yqat4i");
-    			add_location(div8, file$4, 64, 2, 2199);
-    			attr_dev(div9, "class", "steps svelte-1yqat4i");
-    			add_location(div9, file$4, 103, 2, 3430);
+    			attr_dev(div6, "class", "timer-content svelte-2u5ddr");
+    			add_location(div6, file$4, 90, 6, 3084);
+    			attr_dev(div7, "class", "timer svelte-2u5ddr");
+    			add_location(div7, file$4, 75, 4, 2608);
+    			attr_dev(div8, "class", "timer-wrapper svelte-2u5ddr");
+    			add_location(div8, file$4, 64, 2, 2209);
+    			attr_dev(div9, "class", "steps svelte-2u5ddr");
+    			add_location(div9, file$4, 103, 2, 3446);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div5, anchor);
@@ -3620,10 +3625,10 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			i = element("i");
-    			attr_dev(i, "class", "svelte-1yqat4i");
-    			add_location(i, file$4, 67, 8, 2386);
-    			attr_dev(div, "class", "actions next-step svelte-1yqat4i");
-    			add_location(div, file$4, 66, 6, 2303);
+    			attr_dev(i, "class", "svelte-2u5ddr");
+    			add_location(i, file$4, 67, 8, 2399);
+    			attr_dev(div, "class", "actions bh next-step svelte-2u5ddr");
+    			add_location(div, file$4, 66, 6, 2313);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -3684,10 +3689,10 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			i = element("i");
-    			attr_dev(i, "class", "svelte-1yqat4i");
-    			add_location(i, file$4, 72, 8, 2545);
-    			attr_dev(div, "class", "actions stop svelte-1yqat4i");
-    			add_location(div, file$4, 71, 6, 2466);
+    			attr_dev(i, "class", "svelte-2u5ddr");
+    			add_location(i, file$4, 72, 8, 2561);
+    			attr_dev(div, "class", "actions bh stop svelte-2u5ddr");
+    			add_location(div, file$4, 71, 6, 2479);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, div, anchor);
@@ -3812,8 +3817,8 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "stop-timer svelte-1yqat4i");
-    			add_location(div, file$4, 85, 10, 2945);
+    			attr_dev(div, "class", "stop-timer svelte-2u5ddr");
+    			add_location(div, file$4, 85, 10, 2961);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3875,10 +3880,10 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			div1 = element("div");
-    			attr_dev(div0, "class", "paused-timer svelte-1yqat4i");
-    			add_location(div0, file$4, 78, 10, 2703);
-    			attr_dev(div1, "class", "stop-timer svelte-1yqat4i");
-    			add_location(div1, file$4, 81, 10, 2829);
+    			attr_dev(div0, "class", "paused-timer svelte-2u5ddr");
+    			add_location(div0, file$4, 78, 10, 2719);
+    			attr_dev(div1, "class", "stop-timer svelte-2u5ddr");
+    			add_location(div1, file$4, 81, 10, 2845);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -3950,8 +3955,8 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "timer-button svelte-1yqat4i");
-    			add_location(div, file$4, 98, 10, 3336);
+    			attr_dev(div, "class", "timer-button svelte-2u5ddr");
+    			add_location(div, file$4, 98, 10, 3352);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4043,8 +4048,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			t = text(t_value);
-    			attr_dev(div, "class", "counter svelte-1yqat4i");
-    			add_location(div, file$4, 92, 10, 3132);
+    			attr_dev(div, "class", "counter svelte-2u5ddr");
+    			add_location(div, file$4, 92, 10, 3148);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4105,17 +4110,17 @@ var app = (function () {
     			t4 = space();
     			t5 = text(t5_value);
     			t6 = space();
-    			attr_dev(div0, "class", "step-icon svelte-1yqat4i");
-    			add_location(div0, file$4, 108, 12, 3652);
-    			attr_dev(div1, "class", "step-type svelte-1yqat4i");
-    			add_location(div1, file$4, 107, 10, 3616);
-    			attr_dev(div2, "class", "step-icon svelte-1yqat4i");
-    			add_location(div2, file$4, 115, 12, 3965);
-    			attr_dev(div3, "class", "step-time svelte-1yqat4i");
-    			add_location(div3, file$4, 114, 10, 3929);
-    			attr_dev(div4, "class", "step svelte-1yqat4i");
+    			attr_dev(div0, "class", "step-icon svelte-2u5ddr");
+    			add_location(div0, file$4, 108, 12, 3670);
+    			attr_dev(div1, "class", "step-type svelte-2u5ddr");
+    			add_location(div1, file$4, 107, 10, 3634);
+    			attr_dev(div2, "class", "step-icon svelte-2u5ddr");
+    			add_location(div2, file$4, 115, 12, 3983);
+    			attr_dev(div3, "class", "step-time svelte-2u5ddr");
+    			add_location(div3, file$4, 114, 10, 3947);
+    			attr_dev(div4, "class", "step b svelte-2u5ddr");
     			toggle_class(div4, "active", /*$timer*/ ctx[2].step === /*index*/ ctx[10]);
-    			add_location(div4, file$4, 106, 8, 3532);
+    			add_location(div4, file$4, 106, 8, 3548);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -4200,8 +4205,8 @@ var app = (function () {
     			div = element("div");
     			t0 = text(t0_value);
     			t1 = text(t1_value);
-    			attr_dev(div, "class", "step-amount svelte-1yqat4i");
-    			add_location(div, file$4, 112, 12, 3826);
+    			attr_dev(div, "class", "step-amount svelte-2u5ddr");
+    			add_location(div, file$4, 112, 12, 3844);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);

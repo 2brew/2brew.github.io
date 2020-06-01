@@ -1,8 +1,11 @@
 :root {
-	--default-text-color: #333;
-	--default-bg-color: #f9f9fa;
-	--error-color: #f56c6c;
-	--active-color: #87f56c;
+	/* --default-text-color: #faf8ea; */
+	--default-text-color: #e6e4d2;
+	--default-bg-color: #242424;
+	--default-box-color: #3a3835;
+	--error-color: #f35c5c;
+	--active-color: #58771d;
+	--shadow-color: rgba(0,0,0,0.7);
 }
 
 /* RESET */
@@ -30,6 +33,7 @@ time, mark, audio, video {
 
 a {
 	text-decoration: none;
+	color: var(--default-text-color);
 }
 
 svg {
@@ -50,8 +54,18 @@ html, body {
 
 body {
 	background: var(--default-bg-color);
+	color: var(--default-text-color);
 	font-family: Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 div {
 	box-sizing: border-box;
+}
+
+.b, .bh {
+	box-shadow: 0px 0px 2px 0px var(--shadow-color);
+	background-color: var(--default-box-color);
+	border-radius: 10px;
+}
+.bh:hover, .bh:active {
+	background-color: #3f3d36;
 }

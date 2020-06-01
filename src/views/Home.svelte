@@ -20,7 +20,7 @@
 
 {#each systems as item}
   <div class="item">
-    <a class="system-button" href="#/{item.url}" title={tt($translations, item.name)}>
+    <a class="system-button bh" href="#/{item.url}" title={tt($translations, item.name)}>
       <div class="system-icon">
         {@html item.icon}
       </div>
@@ -29,7 +29,7 @@
   </div>
 {/each}
 
-<div class="lang" on:click={toggleLang}>
+<div class="lang bh" on:click={toggleLang}>
   {$translations.language}
 </div>
 
@@ -44,14 +44,9 @@
   }
   .system-button {
     display: flex;
-    border-radius: 10px;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     text-decoration: none;
     flex-direction: column;
     align-items: center;
-  }
-  .system-button:hover, .system-button:active{
-    background: rgba(0,0,0, 0.04);
   }
   .system-icon {
     width: 50%;
@@ -70,12 +65,11 @@
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 20px;
+    left: 20px;
     cursor: pointer;
   }
 </style>

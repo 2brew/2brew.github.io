@@ -25,7 +25,7 @@
 {:else}
 <div class="list">
   {#each $recipes[params.type] as recipe}
-    <a class="recipe-button" href="/{params.type}/{recipe.name}" use:link>
+    <a class="recipe-button bh" href="/{params.type}/{recipe.name}" use:link>
       <div class="recipe-icon">
         {@html resolveSystemIcon(params.type)}
       </div>
@@ -48,8 +48,6 @@
     width: 100%;
     padding: 15px 10px;
     margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -63,7 +61,6 @@
   .recipe-data {
     height: 50px;
     flex-grow: 1;
-    color: var(--default-text-color);
   }
   .recipe-name {
     font-size: 18px;

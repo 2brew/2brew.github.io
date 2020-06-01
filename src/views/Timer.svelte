@@ -56,20 +56,20 @@
   {tt($translations, 'global.loading')}
 {:else if $recipe.ingridients}
   <div class="recipe-info">
-    <div class="recipe-pad recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
-    <div class="recipe-pad recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
-    <div class="recipe-pad recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
-    <div class="recipe-pad recipe-temp">{$recipe.ingridients.temp}°</div>
-    <div class="recipe-pad recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
+    <div class="recipe-pad b recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
+    <div class="recipe-pad b recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
+    <div class="recipe-pad b recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
+    <div class="recipe-pad b recipe-temp">{$recipe.ingridients.temp}°</div>
+    <div class="recipe-pad b recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
   </div>
   <div class="timer-wrapper">
    {#if $timer.step !== null && $timer.step < $recipe.steps.length-1}
-      <div class="actions next-step" on:click={goToNext} transition:scale|local>
+      <div class="actions bh next-step" on:click={goToNext} transition:scale|local>
         <i>{@html next}</i>
       </div>
     {/if}
     {#if $timer.step !== null}
-      <div class="actions stop" on:click={stopTimer} transition:scale|local>
+      <div class="actions bh stop" on:click={stopTimer} transition:scale|local>
         <i>{@html stop}</i>
       </div>
     {/if}
@@ -104,7 +104,7 @@
   <div class="steps">
     {#each $recipe.steps as step, index}
       {#if index >= $timer.step}
-        <div class="step" class:active="{$timer.step === index}" out:scale|local>
+        <div class="step b" class:active="{$timer.step === index}" out:scale|local>
           <div class="step-type">
             <div class="step-icon">{@html resolveStepIcon(step.type)}</div>
             {tt($translations, `step.${step.type}`)}
@@ -133,7 +133,8 @@
 .timer {
   width: 50%;
   border-radius: 50%;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 2px 0px var(--shadow-color);
+  background-color: var(--default-box-color);
   position: relative;
   cursor: pointer;
 }
@@ -155,7 +156,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
@@ -209,8 +209,6 @@
   width: 100%;
   padding: 15px 10px;
   margin: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
   text-decoration: none;
   display: flex;
   justify-content: space-between;
@@ -251,8 +249,6 @@
 }
 .recipe-pad {
   width: 18%;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
   min-height: 45px;
   display: flex;
   align-items: center;

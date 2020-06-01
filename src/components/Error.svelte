@@ -24,10 +24,10 @@
 <style>
   .error {
     color: var(--error-color);
-    background: #fef0f0;
+    background: #5a1313;
     width: 100%;
     padding: 20px 30px;
-    margin: 5px 10px;
+    margin: 5px 0;
     border-radius: 10px;
   }
   .heading{
