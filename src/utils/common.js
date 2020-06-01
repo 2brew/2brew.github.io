@@ -9,6 +9,7 @@ import _temp from '../assets/icons/_temp.svg';
 import _add from '../assets/icons/_add.svg';
 import _place from '../assets/icons/_place.svg';
 import _pour from '../assets/icons/_pour.svg';
+import _bloom from '../assets/icons/_bloom.svg';
 import _stir from '../assets/icons/_stir.svg';
 import _wait from '../assets/icons/_wait.svg';
 import _press from '../assets/icons/_press.svg';
@@ -24,6 +25,7 @@ export function toMSS(time) {
 
 export function resolveSystemIcon(type) {
   switch (type) {
+    case 'v_60':
     case 'v60':
       return v60;
     case 'moka':
@@ -58,6 +60,10 @@ export function resolveStepIcon(type) {
       return _add;
     case 'swirl':
       return _swirl;
+    case 'bloom':
+      return _bloom;
+    default:
+      return _add // just coffee icon
   }
 }
 

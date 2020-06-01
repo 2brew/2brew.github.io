@@ -4,7 +4,7 @@
 
   const systems = [
     {name: 'system.aeropress', url: 'aeropress', icon: resolveSystemIcon('aeropress')},
-    {name: 'system.v60', url: 'v60', icon: resolveSystemIcon('v60')},
+    {name: 'system.v60', url: 'v_60', icon: resolveSystemIcon('v_60')},
     {name: 'system.moka', url: 'moka', icon: resolveSystemIcon('moka')}
   ];
 
@@ -20,7 +20,7 @@
 
 {#each systems as item}
   <div class="item">
-    <a class="system-button" href="#/{item.url}" title={item.name}>
+    <a class="system-button" href="#/{item.url}" title={tt($translations, item.name)}>
       <div class="system-icon">
         {@html item.icon}
       </div>

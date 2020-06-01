@@ -26,7 +26,7 @@
     color: var(--default-text-color);
     float: left;
     padding: 15px 30px;
-    margin: 10px;
+    margin: 10px 0;
     border-radius: 10px;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
     text-decoration: none;

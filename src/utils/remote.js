@@ -32,7 +32,6 @@ export async function requestEndpoint(endpoint, options={}) {
 export async function remote(endpoint, options={}, {set}, type) {
   set({[type]: null, error: null, isFetching: true});
   const result = await requestEndpoint(endpoint, options);
-  console.log(endpoint, result);
   if (result.error) {
     set({[type]: null, error: result.error, isFetching: false});
   } else {
@@ -49,7 +48,7 @@ export async function remote(endpoint, options={}, {set}, type) {
 export function createRemoteData() {
   return {
     aeropress: null,
-    'v60': null,
+    'v_60': null,
     moka: null,
     error: null,
     isFetching: true

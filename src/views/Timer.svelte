@@ -247,11 +247,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 0 1%;
   margin-top: 20px;
 }
 .recipe-pad {
-  width: 19%;
+  width: 18%;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
   min-height: 45px;
@@ -261,7 +260,7 @@
   font-size: 14px;
 }
 .recipe-pad.recipe-grind {
-  width: 21%;
+  width: 25%;
   font-size: 13px;
 }
 .recipe-pad i {

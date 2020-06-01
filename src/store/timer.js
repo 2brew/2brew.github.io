@@ -1,7 +1,12 @@
+import NoSleep from 'nosleep.js';
 import {writable, get} from 'svelte/store';
+
 import {fetchRecipes, recipes} from './recipes';
 
+const noSleep = new NoSleep();
 let interval;
+
+const tick = new Audio('/public/tick.mp3');
 
 export const recipe = writable({
   steps: [],
@@ -36,6 +41,7 @@ export const startTimer = (initialStep = 0, time) => {
   const current = get(recipe);
   const stepNumber = initialStep;
   if (current.steps.length && current.steps[stepNumber]) {
+    noSleep.enable();
     timer.set({time: time || current.steps[stepNumber].time, step: stepNumber});
 
     interval = setInterval(() => {
@@ -49,8 +55,11 @@ export const startTimer = (initialStep = 0, time) => {
       if (ct.step >= current.steps.length - 1) {
         clearInterval(interval);
         timer.set({time: null, step: null, done: true});
+        noSleep.disable();
+        tick.play();
       } else {
         timer.set({time: current.steps[ct.step+1].time, step: ct.step+1});
+        tick.play();
       }
     }, 1000);
   } else {
@@ -61,6 +70,7 @@ export const startTimer = (initialStep = 0, time) => {
 export const stopTimer = () => {
   clearInterval(interval);
   timer.set({time: null, step: null});
+  noSleep.disable();
 }
 
 export const destroyTimer = () => {
@@ -71,6 +81,7 @@ export const destroyTimer = () => {
 
 export const pauseTimer = () => {
   clearInterval(interval);
+  noSleep.disable();
   return get(timer).time;
 }
 
