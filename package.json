@@ -2,7 +2,7 @@
   "name": "brew-helper",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv ."
   },
