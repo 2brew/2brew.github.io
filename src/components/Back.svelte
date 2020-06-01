@@ -1,10 +1,19 @@
 <script>
-  import {link} from 'svelte-spa-router';
+  import {push} from 'svelte-spa-router'
   export let href;
+  export let beforeCallback;
+  
+  function callback(e) {
+    e.preventDefault();
+    if (beforeCallback && typeof beforeCallback === "function") {
+      beforeCallback();
+    }
+    push(href);
+  }
 </script>
 
 <div class="back">
-  <a class="back-button" href="{href}" use:link>❮</a>
+  <a class="back-button" href="{`#${href}`}" on:click={callback}>❮</a>
 </div>
 
 <style>

@@ -1,0 +1,24 @@
+{
+  "system": {
+    "aeropress": "AeroPress",
+    "moka": "Moka",
+    "v60": "v60"
+  },
+  "global": {
+    "g": "g",
+    "ml": "ml"
+  },
+  "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+  "step": {
+    "pour": "Pour water",
+    "stir": "Stir",
+    "wait": "Wait",
+    "place": "Place plunger",
+    "press": "Press",
+    "bloom": "Bloom",
+    "lid": "Put the lid on",
+    "swirl": "Swirl",
+    "invert": "Invert",
+    "brew": "Brew"
+  }
+}

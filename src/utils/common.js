@@ -56,3 +56,44 @@ export function getGrindLevel(level) {
   }
   return 'Medium';
 }
+
+function getKey(key){
+  var intKey = parseInt(key);
+  if (intKey.toString() === key) {
+    return intKey;
+  }
+  return key;
+}
+
+function getShallowProperty(obj, prop) {
+  if ((typeof prop === 'number' && Array.isArray(obj)) || hasOwnProperty(obj, prop)) {
+    return obj[prop];
+  }
+}
+
+export function pathOr (obj, path, defaultValue){
+  if (typeof path === 'number') {
+    path = [path];
+  }
+  if (!path || path.length === 0) {
+    return obj;
+  }
+  if (obj == null) {
+    return defaultValue;
+  }
+  if (typeof path === 'string') {
+    return pathOr(obj, path.split('.'), defaultValue);
+  }
+
+  var currentPath = getKey(path[0]);
+  var nextObj = getShallowProperty(obj, currentPath)
+  if (nextObj === void 0) {
+    return defaultValue;
+  }
+
+  if (path.length === 1) {
+    return nextObj;
+  }
+
+  return pathOr(obj[currentPath], path.slice(1), defaultValue);
+};

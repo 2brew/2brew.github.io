@@ -15,6 +15,10 @@ export const timer = writable({
   step: null,
 });
 
+export const clearRecipe = () => {
+  recipe.set({steps: [], ingridients: {}, error: null, isFetching: true});
+};
+
 export const fetchCurrentRecipe = async (type, name) => {
   let currentRecipe = null;
   recipe.set({steps: [], ingridients: {}, error: null, isFetching: true});
@@ -27,12 +31,12 @@ export const fetchCurrentRecipe = async (type, name) => {
   }
 };
 
-export const startTimer = (initialStep = 0) => {
+export const startTimer = (initialStep = 0, time) => {
   clearInterval(interval);
   const current = get(recipe);
   const stepNumber = initialStep;
   if (current.steps.length && current.steps[stepNumber]) {
-    timer.set({time: current.steps[stepNumber].time, step: stepNumber});
+    timer.set({time: time || current.steps[stepNumber].time, step: stepNumber});
 
     interval = setInterval(() => {
       const ct = get(timer);
@@ -49,12 +53,25 @@ export const startTimer = (initialStep = 0) => {
         timer.set({time: current.steps[ct.step+1].time, step: ct.step+1});
       }
     }, 1000);
+  } else {
+    stopTimer();
   }
 }
 
 export const stopTimer = () => {
   clearInterval(interval);
   timer.set({time: null, step: null});
+}
+
+export const destroyTimer = () => {
+  stopTimer();
+  interval = null;
+  clearRecipe();
+}
+
+export const pauseTimer = () => {
+  clearInterval(interval);
+  return get(timer).time;
 }
 
 export const nextStep = () => {
