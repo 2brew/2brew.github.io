@@ -1,14 +1,19 @@
+import {tt} from '../store/tt';
+
 import aeropress from '../assets/icons/aeropress.svg';
 import moka from '../assets/icons/moka.svg';
 import v60 from '../assets/icons/v60.svg';
-
 import _invert from '../assets/icons/_invert.svg';
 import _lid from '../assets/icons/_lid.svg';
+import _temp from '../assets/icons/_temp.svg';
+import _add from '../assets/icons/_add.svg';
 import _place from '../assets/icons/_place.svg';
 import _pour from '../assets/icons/_pour.svg';
 import _stir from '../assets/icons/_stir.svg';
 import _wait from '../assets/icons/_wait.svg';
 import _press from '../assets/icons/_press.svg';
+
+const DEFAULT_GRIND = ['Espresso', 'Extra Fine', 'Fine', 'Medium Fine', 'Medium', 'Medium Coarse', 'Coarse'];
 
 export function toMSS(time) {
   let total = parseInt(time, 10);
@@ -45,55 +50,43 @@ export function resolveStepIcon(type) {
       return _wait;
     case 'press':
       return _press;
+    case 'heat':
+    case 'cool':
+    case 'brew':
+      return _temp;
+    case 'add':
+      return _add;
     case 'swirl':
       return _swirl;
   }
 }
 
-export function getGrindLevel(level) {
+export function getGrindLevel(level, translations) {
   if (Number.isInteger(level)){
-    return ['Espresso', 'Extra Fine', 'Fine', 'Medium Fine', 'Medium', 'Medium Coarse', 'Coarse'][level-1];
+    return (tt(translations, 'grind', DEFAULT_GRIND)[level-1]);
   }
-  return 'Medium';
+  return tt(translations, 'grind', DEFAULT_GRIND)[5]; //medium
 }
 
-function getKey(key){
-  var intKey = parseInt(key);
-  if (intKey.toString() === key) {
-    return intKey;
-  }
-  return key;
-}
+function stringToPath(path) {
+  if (typeof path !== 'string') return path;
+  const output = [];
+  path.split('.').forEach(item => {
+    item.split(/\[([^}]+)\]/g).forEach(key => {
+      if (key.length > 0) {
+        output.push(key);
+      }
+    });
+  });
+  return output;
+};
 
-function getShallowProperty(obj, prop) {
-  if ((typeof prop === 'number' && Array.isArray(obj)) || hasOwnProperty(obj, prop)) {
-    return obj[prop];
-  }
-}
-
-export function pathOr (obj, path, defaultValue){
-  if (typeof path === 'number') {
-    path = [path];
-  }
-  if (!path || path.length === 0) {
-    return obj;
-  }
-  if (obj == null) {
-    return defaultValue;
-  }
-  if (typeof path === 'string') {
-    return pathOr(obj, path.split('.'), defaultValue);
-  }
-
-  var currentPath = getKey(path[0]);
-  var nextObj = getShallowProperty(obj, currentPath)
-  if (nextObj === void 0) {
-    return defaultValue;
-  }
-
-  if (path.length === 1) {
-    return nextObj;
-  }
-
-  return pathOr(obj[currentPath], path.slice(1), defaultValue);
+export function pathOr(obj, path, defaultVal) {
+	path = stringToPath(path);
+	let current = obj;
+	for (let i = 0; i < path.length; i++) {
+		if (!current[path[i]]) return defaultVal;
+		current = current[path[i]];
+	}
+	return current;
 };

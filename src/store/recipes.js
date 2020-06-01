@@ -8,5 +8,6 @@ export const fetchRecipes = (type, reset) => {
   if (!reset && actualRecipes[type]) {
     return Promise.resolve();
   }
+  console.log(type, `/public/${type}.json`);
   return remote(`/public/${type}.json`, {}, recipes, type);
 };

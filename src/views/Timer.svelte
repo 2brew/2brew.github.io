@@ -6,6 +6,7 @@
   import Back from '../components/Back.svelte';
   import {toMSS, resolveStepIcon, getGrindLevel} from '../utils/common';
   import {recipe, timer, startTimer, stopTimer, pauseTimer, nextStep, destroyTimer, fetchCurrentRecipe} from '../store/timer';
+  import {tt, translations} from '../store/tt';
 
   import time from '../assets/icons/time.svg'
   import coffee from '../assets/icons/coffee.svg'
@@ -52,12 +53,12 @@
 {#if $recipe.error}
   <Error error={$recipe.error}/>
 {:else if $recipe.isFetching}
-  Loading...
+  {tt($translations, 'global.loading')}
 {:else if $recipe.ingridients}
   <div class="recipe-info">
-    <div class="recipe-pad recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}g</div>
-    <div class="recipe-pad recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}ml</div>
-    <div class="recipe-pad recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind)}</span></div>
+    <div class="recipe-pad recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
+    <div class="recipe-pad recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
+    <div class="recipe-pad recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
     <div class="recipe-pad recipe-temp">{$recipe.ingridients.temp}°</div>
     <div class="recipe-pad recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
   </div>
@@ -76,7 +77,7 @@
       {#if $timer.step !== null }
         {#if pausedTime}
           <div class="paused-timer" transition:scale|local>
-            Paused
+            {tt($translations, 'global.paused')}
           </div>
           <div class="stop-timer" transition:scale|local>
             {@html play}
@@ -91,7 +92,7 @@
         {#if $timer.time}
           <div class="counter">{toMSS($timer.time)}</div>
         {:else if $timer.done }
-          Enjoy your coffee
+          {tt($translations, 'global.enjoy')}
         {:else if $timer.time === 0 }
           ...
         {:else}
@@ -106,8 +107,11 @@
         <div class="step" class:active="{$timer.step === index}" out:scale|local>
           <div class="step-type">
             <div class="step-icon">{@html resolveStepIcon(step.type)}</div>
-            {step.type}
+            {tt($translations, `step.${step.type}`)}
           </div>
+          {#if step.amount}
+            <div class="step-amount">{step.amount}{tt($translations, 'global.ml')}</div>
+          {/if}
           <div class="step-time">
             <div class="step-icon">{@html time}</div>
             {toMSS(step.time)}
@@ -225,6 +229,10 @@
   margin: 0 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.step-amount {
+  display: flex;
   align-items: center;
 }
 .step-type .step-icon {

@@ -1,0 +1,60 @@
+{
+  "en": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Moka",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Loading...",
+      "paused": "Paused",
+      "enjoy": "Enjoy your coffee"
+    },
+    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "step": {
+      "pour": "Pour water",
+      "add": "Add coffee",
+      "stir": "Stir",
+      "wait": "Wait",
+      "place": "Place plunger",
+      "press": "Press",
+      "bloom": "Bloom",
+      "lid": "Put the lid on",
+      "swirl": "Swirl",
+      "invert": "Invert",
+      "brew": "Brew",
+      "heat": "Heat the water"
+    }
+  },
+  "ru": {
+    "system": {
+      "aeropress": "Аэропресс",
+      "moka": "Гейзер",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "г",
+      "ml": "мл",
+      "loading": "Загрузка...",
+      "paused": "Пауза",
+      "enjoy": "Кофе готово!"
+    },
+    "grind": ["Для эспрессо", "Очень мелкий", "Мелкий", "Средне мелкий", "Средний", "Средне крупный", "Крупный"],
+    "step": {
+      "pour": "Наливайте воду",
+      "add": "Добавьте кофе",
+      "stir": "Мешайте",
+      "wait": "Ждите",
+      "place": "Поместите пресс",
+      "press": "Жмите пресс",
+      "bloom": "Цветение",
+      "lid": "Поставьте крышку",
+      "swirl": "Наливайте по спирали",
+      "invert": "Переверните",
+      "brew": "Варите",
+      "heat": "Нагрейте воду"
+    }
+  }
+}

@@ -5,6 +5,7 @@
   import Back from '../components/Back.svelte';
   import {toMSS, resolveSystemIcon, getGrindLevel} from '../utils/common';
   import {fetchRecipes, recipes} from '../store/recipes';
+  import {tt, translations} from '../store/tt';
 
   import time from '../assets/icons/time.svg'
   import coffee from '../assets/icons/coffee.svg'
@@ -20,7 +21,7 @@
 {#if $recipes.error}
   <Error error={$recipes.error}/>
 {:else if $recipes.isFetching}
-  Loading...
+  {tt($translations, 'global.loading')}
 {:else}
 <div class="list">
   {#each $recipes[params.type] as recipe}
@@ -32,8 +33,8 @@
           <div class="recipe-name">{recipe.title}</div>
           <div class="recipe-ingridients">
             <i>{@html time}</i><div class="ingridient-data">{toMSS(recipe.ingridients.time)}</div>
-            <i>{@html coffee}</i><div class="ingridient-data">{recipe.ingridients.coffee}g</div>
-            <i>{@html grind}</i><div class="ingridient-data">{getGrindLevel(recipe.ingridients.grind)}</div>
+            <i>{@html coffee}</i><div class="ingridient-data">{recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
+            <i>{@html grind}</i><div class="ingridient-data">{getGrindLevel(recipe.ingridients.grind, $translations)}</div>
             <i></i><div class="ingridient-data">{recipe.ingridients.temp}°</div>
           </div>
         </div>

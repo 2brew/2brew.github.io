@@ -1,11 +1,20 @@
 <script>
   import {resolveSystemIcon} from '../utils/common';
+  import {translations, tt, setLanguage} from '../store/tt';
 
   const systems = [
-    {name: 'AeroPress', url: 'aeropress', icon: resolveSystemIcon('aeropress')},
-    {name: 'V60', url: 'v60', icon: resolveSystemIcon('v60')},
-    {name: 'Moka', url: 'moka', icon: resolveSystemIcon('moka')}
+    {name: 'system.aeropress', url: 'aeropress', icon: resolveSystemIcon('aeropress')},
+    {name: 'system.v60', url: 'v60', icon: resolveSystemIcon('v60')},
+    {name: 'system.moka', url: 'moka', icon: resolveSystemIcon('moka')}
   ];
+
+  function toggleLang() {
+    if ($translations.language === 'en'){
+      setLanguage('ru');
+    } else {
+      setLanguage('en');
+    }
+  }
 
 </script>
 
@@ -15,10 +24,14 @@
       <div class="system-icon">
         {@html item.icon}
       </div>
-      <div class="system-name">{item.name}</div>
+      <div class="system-name">{tt($translations, item.name)}</div>
     </a>
   </div>
 {/each}
+
+<div class="lang" on:click={toggleLang}>
+  {$translations.language}
+</div>
 
 <style>
   .item {
@@ -51,5 +64,18 @@
     display: block;
     font-size: 20px;
     padding: 15px 0;
+  }
+  .lang {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+    cursor: pointer;
   }
 </style>

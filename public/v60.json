@@ -1,0 +1,42 @@
+[
+  {
+    "name": "boring",
+    "title": "Boring", 
+    "ingridients": {
+      "coffee": 20,
+      "water": 300,
+      "grind": 5,
+      "temp": 94,
+      "time": 160
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 40,
+        "time": 10
+      },
+      {
+        "type": "bloom",
+        "time": 20
+      },
+      {
+        "type": "pour",
+        "amount": 150,
+        "time": 45
+      },
+      {
+        "type": "wait",
+        "time": 10
+      },
+      {
+        "type": "pour",
+        "amount": 110,
+        "time": 45
+      },
+      {
+        "type": "wait",
+        "time": 30
+      }
+    ]
+  }
+]

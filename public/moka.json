@@ -1,0 +1,32 @@
+[
+  {
+    "name": "moka-pot",
+    "title": "Moka Pot", 
+    "ingridients": {
+      "coffee": 23,
+      "water": 400,
+      "grind": 5,
+      "temp": 100,
+      "time": 240
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 400,
+        "time": 45
+      },
+      {
+        "type": "heat",
+        "time": 110
+      },
+      {
+        "type": "add",
+        "time": 10
+      },
+      {
+        "type": "brew",
+        "time": 75
+      }
+    ]
+  }
+]
