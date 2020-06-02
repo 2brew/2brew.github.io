@@ -19,7 +19,17 @@ export const recipe = writable({
 export const timer = writable({
   time: null,
   step: null,
+  water: 0
 });
+
+export function calculateWater(current, stepNumber) {
+  return current.steps.reduce((acc, step, index) => {
+    if (step.type === 'pour' && index < stepNumber) {
+      return acc + step.amount;
+    }
+    return acc;
+  }, 0)
+}
 
 export const clearRecipe = () => {
   recipe.set({steps: [], ingridients: {}, error: null, isFetching: true});
@@ -43,27 +53,31 @@ export const startTimer = (initialStep = 0, time) => {
   const stepNumber = initialStep;
   if (current.steps.length && current.steps[stepNumber]) {
     noSleep.enable();
-    timer.set({time: time || current.steps[stepNumber].time, step: stepNumber});
-
+    timer.set({time: time || current.steps[stepNumber].time, water: time ? get(timer).water : calculateWater(current, stepNumber), step: stepNumber});
     interval = setInterval(() => {
       const ct = get(timer);
       let nextTime = ct.time;
+      let water = ct.water;
       if (nextTime > 0) {
         nextTime = nextTime - 1;
-        if (nextTime < 4) {
+        if (nextTime <= 3) {
           const tick = new Audio('/public/audio/tick.wav');
           tick.play();
         }
-        timer.set({time: nextTime, step: ct.step});
+        const currentStep = current.steps[ct.step];
+        if (currentStep.type === 'pour') { // show water level
+          water = ct.water + currentStep.amount/(currentStep.time);
+        }
+        timer.set({time: nextTime, water, step: ct.step});
         return;
       }
       if (ct.step >= current.steps.length - 1) {
         clearInterval(interval);
-        timer.set({time: null, step: null, done: true});
+        timer.set({time: null, step: null, water, done: true});
         noSleep.disable();
         end.play();
       } else {
-        timer.set({time: current.steps[ct.step+1].time, step: ct.step+1});
+        timer.set({time: current.steps[ct.step+1].time, water, step: ct.step+1});
         stage.play();
       }
     }, 1000);
@@ -74,7 +88,7 @@ export const startTimer = (initialStep = 0, time) => {
 
 export const stopTimer = () => {
   clearInterval(interval);
-  timer.set({time: null, step: null});
+  timer.set({time: null, water: 0, step: null});
   noSleep.disable();
 }
 

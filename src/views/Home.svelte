@@ -29,7 +29,7 @@
   </div>
 {/each}
 
-<div class="lang bh" on:click={toggleLang}>
+<div class="lang bb" on:click={toggleLang}>
   {$translations.language}
 </div>
 

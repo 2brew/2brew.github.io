@@ -1,11 +1,21 @@
 <script>
   import {onMount, onDestroy} from 'svelte';
-  import {scale, fly} from 'svelte/transition';
+  import {scale, fade} from 'svelte/transition';
 
   import Error from '../components/Error.svelte';
   import Back from '../components/Back.svelte';
   import {toMSS, resolveStepIcon, getGrindLevel} from '../utils/common';
-  import {recipe, timer, startTimer, stopTimer, pauseTimer, nextStep, destroyTimer, fetchCurrentRecipe} from '../store/timer';
+  import {
+    recipe,
+    timer, 
+    startTimer, 
+    stopTimer, 
+    pauseTimer, 
+    nextStep, 
+    destroyTimer, 
+    fetchCurrentRecipe, 
+    calculateWater
+  } from '../store/timer';
   import {tt, translations} from '../store/tt';
 
   import time from '../assets/icons/time.svg'
@@ -48,13 +58,13 @@
     }
   }
 </script>
-<Back href="/{params.type}" beforeCallback={() => { destroyTimer();}}/>
+<Back href="/{params.type}"/>
 
 {#if $recipe.error}
   <Error error={$recipe.error}/>
 {:else if $recipe.isFetching}
   {tt($translations, 'global.loading')}
-{:else if $recipe.ingridients}
+{:else if $recipe.ingridients.coffee}
   <div class="recipe-info">
     <div class="recipe-pad b recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
     <div class="recipe-pad b recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
@@ -73,17 +83,20 @@
         <i>{@html stop}</i>
       </div>
     {/if}
+    <div class="actions timer-water">
+        {parseInt($timer.water)}{tt($translations, 'global.ml')}
+      </div>
     <div class="timer" on:click={toggleTime}>
       {#if $timer.step !== null }
         {#if pausedTime}
-          <div class="paused-timer" transition:scale|local>
+          <div class="timer-top" transition:scale|local>
             {tt($translations, 'global.paused')}
           </div>
-          <div class="stop-timer" transition:scale|local>
+          <div class="timer-bottom" transition:scale|local>
             {@html play}
           </div>
         {:else}
-          <div class="stop-timer" transition:scale|local>
+          <div class="timer-bottom" transition:scale|local>
             {@html pause}
           </div>
         {/if}
@@ -99,6 +112,13 @@
           <div class="timer-button">{@html play}</div>
         {/if}
       </div>
+      {#if $timer.step !== null && $recipe.steps[$timer.step].type === 'pour'}
+        <div 
+          class="water-level"
+          out:fade|local
+          style="height: {(($timer.water - calculateWater($recipe, $timer.step))/$recipe.steps[$timer.step].amount) * 100}%"
+        ></div>
+      {/if}
     </div>
   </div>
   <div class="steps">
@@ -133,10 +153,11 @@
 .timer {
   width: 50%;
   border-radius: 50%;
-  box-shadow: 0px 0px 2px 0px var(--shadow-color);
+  box-shadow: 0 0 60px -10px #3e2000;
   background-color: var(--default-box-color);
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 }
 .timer-button {
   width: 23vw;
@@ -146,6 +167,21 @@
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+.timer-content {
+  z-index: 2;
+}
+
+.water-level {
+  width: 100%;
+  height: 0%;
+  background-color: var(--water-color);
+  position: absolute;
+  bottom: 0%;
+  z-index: 1;
+  transition: height 1s;
+  transition-timing-function: linear;
 }
 
 .actions {
@@ -169,24 +205,33 @@
   bottom: 10px;
 }
 
+.timer-water {
+  color: var(--water-color);
+  left: 0;
+  align-items: flex-start;
+  font-size: 20px;
+}
+
 .actions i {
   width: 25px;
   height: 25px;
 }
 
-.stop-timer {
+.timer-bottom {
   position: absolute;
   bottom: 5%;
   left: 50%;
   width: 15%;
   margin-left: -7.5%;
+  z-index: 2;
 }
 
-.paused-timer {
+.timer-top {
   position: absolute;
   top: 6%;
   width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .timer-content {
