@@ -6,7 +6,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import svg from 'rollup-plugin-svg'
 
-const production = process.env.NODE_ENV === 'production';
+const production = !process.env.ROLLUP_WATCH;
 
 export default {
 	input: 'src/main.js',
