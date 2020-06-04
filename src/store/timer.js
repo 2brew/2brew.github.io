@@ -3,7 +3,7 @@ import {writable, get} from 'svelte/store';
 
 import {fetchRecipes, recipes} from './recipes';
 
-const noSleep = new NoSleep();
+export const noSleep = new NoSleep();
 let interval;
 
 const stage = new Audio('/public/audio/stage.wav');
@@ -51,8 +51,10 @@ export const startTimer = (initialStep = 0, time) => {
   clearInterval(interval);
   const current = get(recipe);
   const stepNumber = initialStep;
+  const tick = new Audio('/public/audio/tick.wav');
+  const tock = new Audio('/public/audio/tick.wav');
+
   if (current.steps.length && current.steps[stepNumber]) {
-    noSleep.enable();
     timer.set({time: time || current.steps[stepNumber].time, water: time ? get(timer).water : calculateWater(current, stepNumber), step: stepNumber});
     interval = setInterval(() => {
       const ct = get(timer);
@@ -61,8 +63,8 @@ export const startTimer = (initialStep = 0, time) => {
       if (nextTime > 0) {
         nextTime = nextTime - 1;
         if (nextTime <= 3) {
-          const tick = new Audio('/public/audio/tick.wav');
-          tick.play();
+          // to avoid the situation when sound isn't play because it's still not ended
+          (nextTime % 2 == 0) ? tick.play() : tock.play();
         }
         const currentStep = current.steps[ct.step];
         if (currentStep.type === 'pour') { // show water level
@@ -101,7 +103,7 @@ export const destroyTimer = () => {
 export const pauseTimer = () => {
   clearInterval(interval);
   noSleep.disable();
-  return get(timer).time;
+  return get(timer).time || 1; // to prevent return 0
 }
 
 export const nextStep = () => {

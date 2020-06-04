@@ -3,6 +3,7 @@
   import {scale, fade} from 'svelte/transition';
 
   import Error from '../components/Error.svelte';
+  import Loader from '../components/Loader.svelte';
   import Back from '../components/Back.svelte';
   import {toMSS, resolveStepIcon, getGrindLevel} from '../utils/common';
   import {
@@ -14,7 +15,8 @@
     nextStep, 
     destroyTimer, 
     fetchCurrentRecipe, 
-    calculateWater
+    calculateWater,
+    noSleep
   } from '../store/timer';
   import {tt, translations} from '../store/tt';
 
@@ -47,6 +49,7 @@
   function toggleTime() {
     if ($timer.step !== null) {
       if (pausedTime) {
+        noSleep.enable();
         startTimer($timer.step, pausedTime);
         pausedTime = false;
       } else {
@@ -54,6 +57,7 @@
       }
     } else {
       startTimer();
+      noSleep.enable();
       pausedTime = false;
     }
   }
@@ -63,7 +67,7 @@
 {#if $recipe.error}
   <Error error={$recipe.error}/>
 {:else if $recipe.isFetching}
-  {tt($translations, 'global.loading')}
+  <Loader/>
 {:else if $recipe.ingridients.coffee}
   <div class="recipe-info">
     <div class="recipe-pad b recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
@@ -96,6 +100,14 @@
             {@html play}
           </div>
         {:else}
+          {#if $timer.step !== null && $recipe.steps[$timer.step].type === 'pour'}
+            <div class="timer-top" transition:scale|local>
+              <span class="step-water" class:inverted={($timer.water - calculateWater($recipe, $timer.step))/$recipe.steps[$timer.step].amount > 0.9}>
+                {$timer.water - calculateWater($recipe, $timer.step)}
+                {tt($translations, 'global.ml')}
+              </span>
+            </div>
+          {/if}
           <div class="timer-bottom" transition:scale|local>
             {@html pause}
           </div>
@@ -140,7 +152,6 @@
       {/if}
     {/each}
   </div>
-  
 {/if}
 
 <style>
@@ -168,11 +179,9 @@
   display: block;
   padding-bottom: 100%;
 }
-
 .timer-content {
   z-index: 2;
 }
-
 .water-level {
   width: 100%;
   height: 0%;
@@ -183,7 +192,12 @@
   transition: height 1s;
   transition-timing-function: linear;
 }
-
+.step-water {
+  color: var(--water-color);
+}
+.step-water.inverted {
+   color: var(--second-text-color);
+}
 .actions {
   position: absolute;
   height: 60px;
@@ -209,7 +223,7 @@
   color: var(--water-color);
   left: 0;
   align-items: flex-start;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .actions i {

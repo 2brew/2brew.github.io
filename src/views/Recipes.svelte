@@ -3,6 +3,7 @@
   
   import Error from '../components/Error.svelte';
   import Back from '../components/Back.svelte';
+  import Loader from '../components/Loader.svelte';
   import {toMSS, resolveSystemIcon, getGrindLevel} from '../utils/common';
   import {fetchRecipes, recipes} from '../store/recipes';
   import {tt, translations} from '../store/tt';
@@ -21,7 +22,7 @@
 {#if $recipes.error}
   <Error error={$recipes.error}/>
 {:else if $recipes.isFetching}
-  {tt($translations, 'global.loading')}
+  <Loader/>
 {:else}
 <div class="list">
   {#each $recipes[params.type] as recipe}
