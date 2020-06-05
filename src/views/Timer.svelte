@@ -224,6 +224,7 @@
   left: 0;
   align-items: flex-start;
   font-size: 30px;
+  justify-content: flex-start;
 }
 
 .actions i {
