@@ -55,7 +55,11 @@ export const startTimer = (initialStep = 0, time) => {
   const tock = new Audio('/public/audio/tick.wav');
 
   if (current.steps.length && current.steps[stepNumber]) {
-    timer.set({time: time || current.steps[stepNumber].time, water: time ? get(timer).water : calculateWater(current, stepNumber), step: stepNumber});
+    timer.set({
+      time: time === undefined ? current.steps[stepNumber].time : time, 
+      water: time === undefined ? calculateWater(current, stepNumber) : get(timer).water,
+      step: stepNumber
+    });
     interval = setInterval(() => {
       const ct = get(timer);
       let nextTime = ct.time;
@@ -103,7 +107,7 @@ export const destroyTimer = () => {
 export const pauseTimer = () => {
   clearInterval(interval);
   noSleep.disable();
-  return get(timer).time || 1; // to prevent return 0
+  return get(timer).time;
 }
 
 export const nextStep = () => {

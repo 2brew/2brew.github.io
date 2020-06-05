@@ -48,7 +48,7 @@
 
   function toggleTime() {
     if ($timer.step !== null) {
-      if (pausedTime) {
+      if (pausedTime !== false) {
         noSleep.enable();
         startTimer($timer.step, pausedTime);
         pausedTime = false;
@@ -92,7 +92,7 @@
       </div>
     <div class="timer" on:click={toggleTime}>
       {#if $timer.step !== null }
-        {#if pausedTime}
+        {#if pausedTime !== false}
           <div class="timer-top" transition:scale|local>
             {tt($translations, 'global.paused')}
           </div>
