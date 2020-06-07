@@ -1,6 +1,7 @@
 <script>
   import {onMount, onDestroy} from 'svelte';
   import {scale, fade} from 'svelte/transition';
+  import NoSleep from 'nosleep.js';
 
   import Error from '../components/Error.svelte';
   import Loader from '../components/Loader.svelte';
@@ -15,8 +16,7 @@
     nextStep, 
     destroyTimer, 
     fetchCurrentRecipe, 
-    calculateWater,
-    noSleep
+    calculateWater
   } from '../store/timer';
   import {tt, translations} from '../store/tt';
 
@@ -30,6 +30,7 @@
   import pause from '../assets/icons/pause.svg'
 
   export let params = {};
+  const noSleep = new NoSleep();
 
   let pausedTime = false;
 
@@ -62,7 +63,9 @@
     }
   }
 </script>
-<Back href="/{params.type}"/>
+<div class="back-container">
+  <Back nomargin={true} href="/{params.type}"/>
+</div>
 
 {#if $recipe.error}
   <Error error={$recipe.error}/>
@@ -70,12 +73,20 @@
   <Loader/>
 {:else if $recipe.ingridients.coffee}
   <div class="recipe-info">
-    <div class="recipe-pad b recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
-    <div class="recipe-pad b recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
-    <div class="recipe-pad b recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
-    <div class="recipe-pad b recipe-temp">{$recipe.ingridients.temp}°</div>
-    <div class="recipe-pad b recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
+    <div class="recipe-pad recipe-coffee"><i>{@html coffee}</i>{$recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
+    <div class="recipe-pad recipe-water"><i>{@html water}</i>{$recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
+    <div class="recipe-pad recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
+    <div class="recipe-pad recipe-temp">{$recipe.ingridients.temp}°</div>
+    <div class="recipe-pad recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
   </div>
+  <h1 class="recipe-title">
+    {$recipe.title}
+  </h1>
+  {#if $recipe.notes}
+    <div class="recipe-notes">
+      {$recipe.notes}
+    </div>
+  {/if}
   <div class="timer-wrapper">
    {#if $timer.step !== null && $timer.step < $recipe.steps.length-1}
       <div class="actions bh next-step" on:click={goToNext} transition:scale|local>
@@ -143,6 +154,8 @@
           </div>
           {#if step.amount}
             <div class="step-amount">{step.amount}{tt($translations, 'global.ml')}</div>
+          {:else if step.notes}
+            <div class="step-amount">{step.notes}</div>
           {/if}
           <div class="step-time">
             <div class="step-icon">{@html time}</div>
@@ -155,10 +168,14 @@
 {/if}
 
 <style>
+.back-container {
+  float: left;
+  width: 20%;
+}
 .timer-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
   position: relative;
 }
 .timer {
@@ -172,7 +189,7 @@
 }
 .timer-button {
   width: 23vw;
-  max-width: 180px;
+  max-width: 140px;
 }
 .timer:after {
   content: "";
@@ -277,11 +294,14 @@
 .step.active {
   background: var(--active-color);
 }
-
 .step-type, .step-time {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.step-type {
+  min-width: 150px;
+  justify-content: flex-start;
 }
 .step-icon {
   margin: 0 10px;
@@ -292,6 +312,10 @@
 .step-amount {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  font-size: 13px;
+  flex-grow: 1;
+  padding-left: 5px;
 }
 .step-type .step-icon {
   width: 30px;
@@ -299,25 +323,43 @@
 .step-time .step-icon {
   width: 15px;
 }
+.recipe-notes, .recipe-title {
+  width: 100%;
+  color: var(--second-text-color);
+  margin: 10px 0;
+}
+.recipe-notes {
+  font-size: 11px;
+}
+.recipe-title {
+  font-size: 20px;
+  padding-top: 10px;
+}
 .recipe-info {
   display: flex;
-  width: 100%;
+  width: 78%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top: 20px;
+  min-height: 49px;
+  flex-flow: wrap;
+  padding-left: 2%;
 }
 .recipe-pad {
-  width: 18%;
-  min-height: 45px;
+  width: 30%;
+  min-height: 25px;
+  color: var(--second-text-color);
   display: flex;
   align-items: center;
-  justify-content: center ;
+  justify-content: flex-start;
   font-size: 14px;
 }
 .recipe-pad.recipe-grind {
-  width: 25%;
-  font-size: 13px;
+  width: 36%;
+}
+.recipe-pad :global(svg g), .recipe-pad :global(svg path) {
+  fill: var(--default-box-color);
 }
 .recipe-pad i {
   width: 15px;

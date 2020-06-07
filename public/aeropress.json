@@ -2,10 +2,11 @@
   {
     "name": "standrard",
     "title": "Standard", 
+    "notes": "",
     "ingridients": {
       "coffee": 16,
       "water": 260,
-      "grind": 2,
+      "grind": 3,
       "temp": 90,
       "inverted": false,
       "time": 120
@@ -36,6 +37,85 @@
       {
         "type": "press",
         "time": 55
+      }
+    ]
+  },
+  {
+    "name": "classic-espresso",
+    "title": "Classic espresso style", 
+    "notes": "Recipe from instruction. Not a real espresso just a small cup of coffee",
+    "ingridients": {
+      "coffee": 15,
+      "water": 50,
+      "grind": 2,
+      "temp": 80,
+      "inverted": false,
+      "time": 65
+    },
+    "steps": [
+      {
+        "type": "add",
+        "time": 5
+      },
+      {
+        "type": "pour",
+        "amount": 50,
+        "time": 10
+      },
+      {
+        "type": "stir",
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 10
+      },
+      {
+        "type": "place",
+        "time": 5
+      },
+      {
+        "type": "press",
+        "time": 30
+      }
+    ]
+  },
+  {
+    "name": "real-espresso",
+    "title": "Like real espresso", 
+    "notes": "Be prepared and use strong cup",
+    "ingridients": {
+      "coffee": 9,
+      "water": 50,
+      "grind": 1,
+      "temp": 95,
+      "inverted": false,
+      "time": 105
+    },
+    "steps": [
+      {
+        "type": "add",
+        "notes": "Add tampered coffee, use something to tamper it inside",
+        "time": 20
+      },
+      {
+        "type": "filter",
+        "notes": "Add second paper filter on the top of the coffee",
+        "time": 10
+      },
+      {
+        "type": "pour",
+        "amount": 50,
+        "time": 10
+      },
+      {
+        "type": "place",
+        "time": 5
+      },
+      {
+        "type": "press",
+        "notes": "You need to press REALLY hard",
+        "time": 60
       }
     ]
   }

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <g fill="none" fill-rule="evenodd">
-    <rect width="24" height="95" x="32" y="16" fill="#000" rx="8"/>
-    <rect width="24" height="95" x="72" y="16" fill="#000" rx="8"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+    <g fill="#000" fill-rule="evenodd">
+        <rect width="24" height="95" x="32" y="16" rx="8"/>
+        <rect width="24" height="95" x="72" y="16" rx="8"/>
+    </g>
 </svg>

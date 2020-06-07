@@ -27,7 +27,7 @@
 <div class="list">
   {#each $recipes[params.type] as recipe}
     <a class="recipe-button bh" href="/{params.type}/{recipe.name}" use:link>
-      <div class="recipe-icon">
+      <div class="recipe-icon" class:inverted={recipe.ingridients.inverted}>
         {@html resolveSystemIcon(params.type)}
       </div>
       <div class="recipe-data">
@@ -36,7 +36,8 @@
             <i>{@html time}</i><div class="ingridient-data">{toMSS(recipe.ingridients.time)}</div>
             <i>{@html coffee}</i><div class="ingridient-data">{recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
             <i>{@html grind}</i><div class="ingridient-data">{getGrindLevel(recipe.ingridients.grind, $translations)}</div>
-            <i></i><div class="ingridient-data">{recipe.ingridients.temp}°</div>
+            <div class="ingridient-data">{recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
+            <div class="ingridient-data">{recipe.ingridients.temp}°</div>
           </div>
         </div>
     </a>
@@ -59,8 +60,11 @@
     height: 50px;
     margin-right: 10px
   }
+  .recipe-icon.inverted {
+    transform: rotate(180deg);
+  }
   .recipe-data {
-    height: 50px;
+    min-height: 50px;
     flex-grow: 1;
   }
   .recipe-name {
@@ -68,12 +72,15 @@
   }
   .recipe-ingridients {
       font-size: 13px;
-      margin-top: 10px
+      margin-top: 10px;
+      line-height: 1.5;
   }
   i {
     display: block;
     height: 14px;
+    width: 14px;
     float: left;
+    margin-top: 2px;
     margin-right: 8px;
   }
   .ingridient-data {

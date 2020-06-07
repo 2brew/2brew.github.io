@@ -1,19 +1,11 @@
 <script>
   import {push, link} from 'svelte-spa-router'
   export let href;
-  // export let beforeCallback;
-  
-  // function callback(e) {
-  //   e.preventDefault();
-  //   if (beforeCallback && typeof beforeCallback === "function") {
-  //     beforeCallback();
-  //   }
-  //   push(href);
-  // }
+  export let nomargin;
 </script>
 
 <div class="back">
-  <a class="back-button bb" href="{href}" use:link>❮</a>
+  <a class="back-button bh" class:no-margin={nomargin} href="{href}" use:link>❮</a>
 </div>
 
 <style>
@@ -22,10 +14,15 @@
     display: flex;
   }
   .back .back-button {
-    width: auto;
     float: left;
-    padding: 15px 30px;
-    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    min-width: 60px;
+    margin: 20px 5px 10px 0;
     text-decoration: none;
+  }
+  .back-button.no-margin {
+    margin: 0;
   }
 </style>

@@ -37,10 +37,13 @@
   .item {
     width: 33.3%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
     float: left;
     margin-top: 10px;
     position: relative;
+  }
+  .item:last-of-type {
+    padding-right: 0;
   }
   .system-button {
     display: flex;

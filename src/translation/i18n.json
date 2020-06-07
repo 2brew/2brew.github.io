@@ -25,7 +25,8 @@
       "swirl": "Swirl",
       "invert": "Invert",
       "brew": "Brew",
-      "heat": "Heat the water"
+      "heat": "Heat the water",
+      "filter": "Place filter"
     }
   },
   "ru": {
@@ -54,7 +55,8 @@
       "swirl": "Наливайте по спирали",
       "invert": "Переверните",
       "brew": "Варите",
-      "heat": "Нагрейте воду"
+      "heat": "Нагрейте воду",
+      "filter": "Положите фильтр"
     }
   }
 }

@@ -3,13 +3,15 @@ import {writable, get} from 'svelte/store';
 
 import {fetchRecipes, recipes} from './recipes';
 
-export const noSleep = new NoSleep();
+const noSleep = new NoSleep();
 let interval;
 
 const stage = new Audio('/public/audio/stage.wav');
 const end = new Audio('/public/audio/end.wav');
 
 export const recipe = writable({
+  title: null,
+  notes: null,
   steps: [],
   ingridients: {},
   error: null,
@@ -37,11 +39,11 @@ export const clearRecipe = () => {
 
 export const fetchCurrentRecipe = async (type, name) => {
   let currentRecipe = null;
-  recipe.set({steps: [], ingridients: {}, error: null, isFetching: true});
+  recipe.set({title: null, notes: null, steps: [], ingridients: {}, error: null, isFetching: true});
   await fetchRecipes(type);
   currentRecipe = get(recipes)[type] ? get(recipes)[type].find((item) => item.name === name) : null;
   if (currentRecipe) {
-    recipe.set({steps: currentRecipe.steps, ingridients: currentRecipe.ingridients, error: null, isFetching: false});
+    recipe.set({title: currentRecipe.title, notes: currentRecipe.notes, steps: currentRecipe.steps, ingridients: currentRecipe.ingridients, error: null, isFetching: false});
   } else {
     recipe.set({steps: [], ingridients: {}, error: {response: {status: 404, statusText: 'Not Found'}}, isFetching: false});
   }

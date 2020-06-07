@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
-  <g fill="none" fill-rule="evenodd">
-    <circle cx="28" cy="13" r="4" fill="#000"/>
-    <circle cx="32" cy="25" r="4" fill="#000"/>
-    <circle cx="46" cy="17" r="4" fill="#000"/>
-    <circle cx="54" cy="33" r="4" fill="#000"/>
-    <circle cx="36" cy="47" r="4" fill="#000"/>
-    <circle cx="42" cy="29" r="4" fill="#000"/>
-    <circle cx="46" cy="41" r="4" fill="#000"/>
-    <circle cx="28" cy="37" r="4" fill="#000"/>
-    <circle cx="54" cy="53" r="4" fill="#000"/>
-    <circle cx="18" cy="37" r="4" fill="#000"/>
-    <circle cx="22" cy="49" r="4" fill="#000"/>
-    <circle cx="40" cy="60" r="4" fill="#000"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+    <g fill="#000" fill-rule="evenodd">
+        <circle cx="28" cy="13" r="4"/>
+        <circle cx="32" cy="25" r="4"/>
+        <circle cx="46" cy="17" r="4"/>
+        <circle cx="54" cy="33" r="4"/>
+        <circle cx="36" cy="47" r="4"/>
+        <circle cx="42" cy="29" r="4"/>
+        <circle cx="46" cy="41" r="4"/>
+        <circle cx="28" cy="37" r="4"/>
+        <circle cx="54" cy="53" r="4"/>
+        <circle cx="18" cy="37" r="4"/>
+        <circle cx="22" cy="49" r="4"/>
+        <circle cx="40" cy="60" r="4"/>
+    </g>
 </svg>
