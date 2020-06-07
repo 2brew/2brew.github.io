@@ -78,6 +78,9 @@
     <div class="recipe-pad recipe-grind"><i>{@html grind}</i><span>{getGrindLevel($recipe.ingridients.grind, $translations)}</span></div>
     <div class="recipe-pad recipe-temp">{$recipe.ingridients.temp}°</div>
     <div class="recipe-pad recipe-time"><i>{@html time}</i>{toMSS($recipe.ingridients.time)}</div>
+    {#if $recipe.ingridients.inverted}
+      <div class="recipe-pad recipe-inverted">{tt($translations, 'global.inverted')}</div>
+    {/if}
   </div>
   <h1 class="recipe-title">
     {$recipe.title}
@@ -114,7 +117,7 @@
           {#if $timer.step !== null && $recipe.steps[$timer.step].type === 'pour'}
             <div class="timer-top" transition:scale|local>
               <span class="step-water" class:inverted={($timer.water - calculateWater($recipe, $timer.step))/$recipe.steps[$timer.step].amount > 0.9}>
-                {$timer.water - calculateWater($recipe, $timer.step)}
+                {parseInt($timer.water - calculateWater($recipe, $timer.step))}
                 {tt($translations, 'global.ml')}
               </span>
             </div>

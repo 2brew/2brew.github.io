@@ -33,10 +33,10 @@
       <div class="recipe-data">
           <div class="recipe-name">{recipe.title}</div>
           <div class="recipe-ingridients">
-            <i>{@html time}</i><div class="ingridient-data">{toMSS(recipe.ingridients.time)}</div>
+          <div class="ingridient-data">{recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
             <i>{@html coffee}</i><div class="ingridient-data">{recipe.ingridients.coffee}{tt($translations, 'global.g')}</div>
+            <i>{@html time}</i><div class="ingridient-data">{toMSS(recipe.ingridients.time)}</div>
             <i>{@html grind}</i><div class="ingridient-data">{getGrindLevel(recipe.ingridients.grind, $translations)}</div>
-            <div class="ingridient-data">{recipe.ingridients.water}{tt($translations, 'global.ml')}</div>
             <div class="ingridient-data">{recipe.ingridients.temp}°</div>
           </div>
         </div>

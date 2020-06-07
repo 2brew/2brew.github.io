@@ -14,7 +14,7 @@ export function tt(ttObj, path, def) {
 };
 
 export function setLanguage(lang = 'en') {
-  if (['en', 'ru'].indexOf(lang) !== -1) {
+  if (['en', 'ru', 'pl'].indexOf(lang) !== -1) {
     localStorage.setItem('lang', lang);
     translations.set({tt: i18n[lang], language: lang});
   }

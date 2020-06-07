@@ -6,7 +6,7 @@
     "ingridients": {
       "coffee": 16,
       "water": 260,
-      "grind": 3,
+      "grind": 4,
       "temp": 90,
       "inverted": false,
       "time": 120
@@ -37,6 +37,98 @@
       {
         "type": "press",
         "time": 55
+      }
+    ]
+  },
+  {
+    "name": "coarse-inverted",
+    "title": "Coarse inverted", 
+    "notes": "Last 40 ml pour - with room temperature",
+    "ingridients": {
+      "coffee": 35,
+      "water": 200,
+      "grind": 7,
+      "temp": 85,
+      "inverted": true,
+      "time": 105
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 100,
+        "time": 30
+      },
+      {
+        "type": "stir",
+        "time": 30
+      },
+      {
+        "type": "lid",
+        "time": 5
+      },
+      {
+        "type": "invert",
+        "time": 5
+      },
+      {
+        "type": "press",
+        "time": 25,
+        "notes": "Press fast"
+      },
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "pour",
+        "amount": 40,
+        "time": 5
+      }
+    ]
+  },
+  {
+    "name": "inverted",
+    "title": "Simple inverted", 
+    "notes": "",
+    "ingridients": {
+      "coffee": 20,
+      "water": 230,
+      "grind": 6,
+      "temp": 80,
+      "inverted": true,
+      "time": 100
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 10
+      },
+      {
+        "type": "swirl",
+        "time": 15
+      },
+      {
+        "type": "wait",
+        "time": 20
+      },
+      {
+        "type": "pour",
+        "amount": 170,
+        "time": 15
+      },
+      {
+        "type": "lid",
+        "time": 5
+      },
+      {
+        "type": "invert",
+        "time": 5
+      },
+      {
+        "type": "press",
+        "time": 30
       }
     ]
   },
@@ -90,7 +182,7 @@
       "grind": 1,
       "temp": 95,
       "inverted": false,
-      "time": 105
+      "time": 75
     },
     "steps": [
       {
@@ -115,7 +207,7 @@
       {
         "type": "press",
         "notes": "You need to press REALLY hard",
-        "time": 60
+        "time": 30
       }
     ]
   }

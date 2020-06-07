@@ -10,6 +10,7 @@ import _add from '../assets/icons/_add.svg';
 import _place from '../assets/icons/_place.svg';
 import _pour from '../assets/icons/_pour.svg';
 import _bloom from '../assets/icons/_bloom.svg';
+import _swirl from '../assets/icons/_swirl.svg';
 import _stir from '../assets/icons/_stir.svg';
 import _wait from '../assets/icons/_wait.svg';
 import _press from '../assets/icons/_press.svg';

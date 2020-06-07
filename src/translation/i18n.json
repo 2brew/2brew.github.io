@@ -10,7 +10,8 @@
       "ml": "ml",
       "loading": "Loading...",
       "paused": "Paused",
-      "enjoy": "Enjoy your coffee"
+      "enjoy": "Enjoy your coffee",
+      "inverted": "Inverted"
     },
     "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
     "step": {
@@ -40,7 +41,8 @@
       "ml": "мл",
       "loading": "Загрузка...",
       "paused": "Пауза",
-      "enjoy": "Кофе готов!"
+      "enjoy": "Кофе готов!",
+      "inverted": "Инвертированный"
     },
     "grind": ["Для эспрессо", "Очень мелкий", "Мелкий", "Средне мелкий", "Средний", "Средне крупный", "Крупный"],
     "step": {
@@ -52,11 +54,42 @@
       "press": "Жмите пресс",
       "bloom": "Цветение",
       "lid": "Поставьте крышку",
-      "swirl": "Наливайте по спирали",
+      "swirl": "Вращайте",
       "invert": "Переверните",
       "brew": "Варите",
       "heat": "Нагрейте воду",
       "filter": "Положите фильтр"
+    }
+  },
+  "pl": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Kawiarka",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Ładowanie...",
+      "paused": "Pauza",
+      "enjoy": "Kawa jest gotowa!",
+      "inverted": "Odwrócony"
+    },
+    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "step": {
+      "pour": "Nalej wodę",
+      "add": "Dodaj kawę",
+      "stir": "Wymieszaj",
+      "wait": "Czekaj",
+      "place": "Umieść prasę",
+      "press": "Delikatnie wyciskaj",
+      "bloom": "Proces palenia",
+      "lid": "Załóż pokrywę",
+      "swirl": "Obracaj po kołu",
+      "invert": "Odwróć",
+      "brew": "Zaparzaj",
+      "heat": "Podgrzej wodę",
+      "filter": "Umieść filtr"
     }
   }
 }

@@ -7,17 +7,18 @@
     {name: 'system.v60', url: 'v_60', icon: resolveSystemIcon('v_60')},
     {name: 'system.moka', url: 'moka', icon: resolveSystemIcon('moka')}
   ];
+  const languages = ['en', 'ru', 'pl'];
+  let nextLang = 'ru';
 
   function toggleLang() {
-    if ($translations.language === 'en'){
-      setLanguage('ru');
-    } else {
-      setLanguage('en');
-    }
+      setLanguage(nextLang);
+      const index = languages.indexOf(nextLang);
+      nextLang =languages[index+1] || 'en';
   }
 
 </script>
 
+<div>
 {#each systems as item}
   <div class="item">
     <a class="system-button bh" href="#/{item.url}" title={tt($translations, item.name)}>
@@ -28,6 +29,13 @@
     </a>
   </div>
 {/each}
+</div>
+
+<div class="author-info">
+  Have your own recipe? Just propose it <a target="_blank" href="https://github.com/2brew/2brew.github.io/issues">here</a>!
+  <br>
+  Want to contribute? <br> Welcome to the repository: <a target="_blank" href="https://github.com/2brew/2brew.github.io">github.com/2brew/2brew.github.io</a>.
+</div>
 
 <div class="lang bb" on:click={toggleLang}>
   {$translations.language}
@@ -52,7 +60,7 @@
     align-items: center;
   }
   .system-icon {
-    width: 50%;
+    width: 12vh;
     margin: 14px;
     display: block;
   }
@@ -74,5 +82,14 @@
     align-items: center;
     left: 20px;
     cursor: pointer;
+  }
+  .author-info {
+    width: 100%;
+    color: var(--second-text-color);
+    margin-top: 100px;
+    float: left;
+  }
+  .author-info a{
+    color: var(--water-color);
   }
 </style>
