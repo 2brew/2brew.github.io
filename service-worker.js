@@ -1,10 +1,11 @@
-const PRECACHE = 'precache-v3';
+const PRECACHE = 'cache-v1';
 const RUNTIME = 'runtime';
 
-// A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
-  // 'index.html',
-  // './' // Alias for index.html
+const PRECACHED_URLS = [
+  'index.html',
+  './',
+  './public/audio',
+  './public/favicon.png'
 ];
 
 // // The install handler takes care of precaching the resources we always need.
@@ -30,9 +31,6 @@ const PRECACHE_URLS = [
 //   );
 // });
 
-// // The fetch handler serves responses for same-origin resources from a cache.
-// // If no response is found, it populates the runtime cache with the response
-// // from the network before returning it to the page.
 // self.addEventListener('fetch', event => {
 //   if (event.request.url.startsWith(self.location.origin)) {
 //     event.respondWith(

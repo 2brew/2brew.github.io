@@ -3,7 +3,7 @@ import {writable, get} from 'svelte/store';
 
 import {fetchRecipes, recipes} from './recipes';
 
-const noSleep = new NoSleep();
+export const noSleep = new NoSleep();
 let interval;
 
 const stage = new Audio('/public/audio/stage.wav');

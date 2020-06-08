@@ -9,13 +9,14 @@
   import {toMSS, resolveStepIcon, getGrindLevel} from '../utils/common';
   import {
     recipe,
-    timer, 
-    startTimer, 
-    stopTimer, 
-    pauseTimer, 
-    nextStep, 
-    destroyTimer, 
-    fetchCurrentRecipe, 
+    timer,
+    noSleep,
+    startTimer,
+    stopTimer,
+    pauseTimer,
+    nextStep,
+    destroyTimer,
+    fetchCurrentRecipe,
     calculateWater
   } from '../store/timer';
   import {tt, translations} from '../store/tt';
@@ -30,7 +31,6 @@
   import pause from '../assets/icons/pause.svg'
 
   export let params = {};
-  const noSleep = new NoSleep();
 
   let pausedTime = false;
 
@@ -57,8 +57,8 @@
         pausedTime = pauseTimer();
       }
     } else {
-      startTimer();
       noSleep.enable();
+      startTimer();
       pausedTime = false;
     }
   }
