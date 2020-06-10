@@ -10,7 +10,7 @@ const PRECACHE_URLS = [
   '/public/v_60.json',
   '/public/audio/end.wav',
   '/public/audio/stage.wav',
-  '/public/public/audio/tick.wav',
+  '/public/audio/tick.wav',
   '/public/build/bundle.css',
   '/public/build/bundle.js',
   '/public/global.css'
