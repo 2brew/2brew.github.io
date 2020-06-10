@@ -17,25 +17,28 @@
   }
 
 </script>
-
-<div>
-{#each systems as item}
-  <div class="item">
-    <a class="system-button bh" href="#/{item.url}" title={tt($translations, item.name)}>
-      <div class="system-icon">
-        {@html item.icon}
-      </div>
-      <div class="system-name">{tt($translations, item.name)}</div>
-    </a>
+<nav>
+  <div>
+  {#each systems as item}
+    <div class="item">
+      <a class="system-button bh" href="#/{item.url}" title={tt($translations, item.name)}>
+        <div class="system-icon">
+          {@html item.icon}
+        </div>
+        <div class="system-name">{tt($translations, item.name)}</div>
+      </a>
+    </div>
+  {/each}
   </div>
-{/each}
-</div>
+</nav>
 
-<div class="author-info">
-  Have your own recipe? Just propose it <a target="_blank" href="https://github.com/2brew/2brew.github.io/issues">here</a>!
-  <br>
-  Want to contribute? <br> Welcome to the repository: <a target="_blank" href="https://github.com/2brew/2brew.github.io">github.com/2brew/2brew.github.io</a>.
-</div>
+<main>
+  <div class="author-info">
+    Have your own recipe? Just propose it in <a target="_blank" rel="noreferrer" href="https://github.com/2brew/2brew.github.io/issues">issues</a>!
+    <br>
+    Want to contribute? <br> Welcome to the repository: <a target="_blank" rel="noreferrer" href="https://github.com/2brew/2brew.github.io">github.com/2brew/2brew.github.io</a>.
+  </div>
+</main>
 
 <div class="lang bb" on:click={toggleLang}>
   {$translations.language}
