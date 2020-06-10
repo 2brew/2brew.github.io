@@ -1,7 +1,7 @@
 const PRECACHE = 'cache-v3';
 const RUNTIME = 'runtime';
 
-const PRECACHED_URLS = [
+const PRECACHE_URLS = [
   'index.html',
   './',
   '/public/audio',
