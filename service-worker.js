@@ -4,7 +4,6 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
   'index.html',
   './',
-  '/public/audio',
   '/public/favicon.png',
   '/public/aeropress.json',
   '/public/moka.json',
