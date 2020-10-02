@@ -13,7 +13,15 @@
       "enjoy": "Enjoy your coffee",
       "inverted": "Inverted"
     },
-    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "grind": [
+      "Espresso",
+      "Extra Fine",
+      "Fine",
+      "Medium Fine",
+      "Medium",
+      "Medium Coarse",
+      "Coarse"
+    ],
     "step": {
       "pour": "Pour water",
       "add": "Add coffee",
@@ -44,7 +52,15 @@
       "enjoy": "Кофе готов!",
       "inverted": "Инвертированный"
     },
-    "grind": ["Для эспрессо", "Очень мелкий", "Мелкий", "Средне мелкий", "Средний", "Средне крупный", "Крупный"],
+    "grind": [
+      "Для эспрессо",
+      "Очень мелкий",
+      "Мелкий",
+      "Средне мелкий",
+      "Средний",
+      "Средне крупный",
+      "Крупный"
+    ],
     "step": {
       "pour": "Наливайте воду",
       "add": "Добавьте кофе",
@@ -75,7 +91,15 @@
       "enjoy": "Kawa jest gotowa!",
       "inverted": "Odwrócony"
     },
-    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "grind": [
+      "Espresso",
+      "Extra Fine",
+      "Fine",
+      "Medium Fine",
+      "Medium",
+      "Medium Coarse",
+      "Coarse"
+    ],
     "step": {
       "pour": "Nalej wodę",
       "add": "Dodaj kawę",
@@ -106,7 +130,15 @@
       "enjoy": "Sana masaya kayo!",
       "inverted": "Baliktad"
     },
-    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "grind": [
+      "Espresso",
+      "Extra Fine",
+      "Fine",
+      "Medium Fine",
+      "Medium",
+      "Medium Coarse",
+      "Coarse"
+    ],
     "step": {
       "pour": "ibuhos",
       "add": "dagdagan",
@@ -121,6 +153,7 @@
       "brew": "i-brew",
       "heat": "painitin",
       "filter": "i-filter"
+    }
   },
   "de": {
     "system": {
@@ -136,7 +169,15 @@
       "enjoy": "Der Kaffee ist fertig!",
       "inverted": "Invertiert"
     },
-    "grind": ["Ausgedrückt", "Extra Fein", "Fein", "Mittel Fein", "Mittel", "Mittel Grob", "Grob"],
+    "grind": [
+      "Ausgedrückt",
+      "Extra Fein",
+      "Fein",
+      "Mittel Fein",
+      "Mittel",
+      "Mittel Grob",
+      "Grob"
+    ],
     "step": {
       "pour": "Gieße Wasser",
       "add": "Kaffee hinzufügen",
@@ -167,7 +208,15 @@
       "enjoy": "Aprecie seu café",
       "inverted": "Invertido"
     },
-    "grind": ["Espresso", "Extrafino", "Fino", "Médio-fino", "Médio", "Médio-grosso", "Grosso"],
+    "grind": [
+      "Espresso",
+      "Extrafino",
+      "Fino",
+      "Médio-fino",
+      "Médio",
+      "Médio-grosso",
+      "Grosso"
+    ],
     "step": {
       "pour": "Despeje a água",
       "add": "Adicione café",
@@ -183,4 +232,5 @@
       "heat": "Aqueça a água",
       "filter": "Coloque o filtro"
     }
+  }
 }
