@@ -91,5 +91,36 @@
       "heat": "Podgrzej wodę",
       "filter": "Umieść filtr"
     }
+  },
+  "pt": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Moka",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Carregando...",
+      "paused": "Pausado",
+      "enjoy": "Aprecie seu café",
+      "inverted": "Invertido"
+    },
+    "grind": ["Espresso", "Extrafino", "Fino", "Médio-fino", "Médio", "Médio-grosso", "Grosso"],
+    "step": {
+      "pour": "Despeje a água",
+      "add": "Adicione café",
+      "stir": "Mexa",
+      "wait": "Espere",
+      "place": "Coloque a prensa",
+      "press": "Prense",
+      "bloom": "Infuse",
+      "lid": "Ponha a tampa",
+      "swirl": "Mexa circularmente",
+      "invert": "Inverta",
+      "brew": "Prepare o café",
+      "heat": "Aqueça a água",
+      "filter": "Coloque o filtro"
+    }
   }
 }
