@@ -91,5 +91,36 @@
       "heat": "Podgrzej wodę",
       "filter": "Umieść filtr"
     }
+  },
+  "fil": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "moka",
+      "v60": "v60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Maghintay lamang...",
+      "paused": "nakahimpil",
+      "enjoy": "Sana masaya kayo!",
+      "inverted": "Baliktad"
+    },
+    "grind": ["Espresso", "Extra Fine", "Fine", "Medium Fine", "Medium", "Medium Coarse", "Coarse"],
+    "step": {
+      "pour": "ibuhos",
+      "add": "dagdagan",
+      "stir": "haluin",
+      "wait": "maghintay",
+      "place": "ilagay",
+      "press": "pindutin",
+      "bloom": "i-bloom",
+      "lid": "takip",
+      "swirl": "i-swirl",
+      "invert": "baliktad",
+      "brew": "i-brew",
+      "heat": "painitin",
+      "filter": "i-filter"
+    }
   }
 }
