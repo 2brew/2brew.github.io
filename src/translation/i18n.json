@@ -91,5 +91,36 @@
       "heat": "Podgrzej wodę",
       "filter": "Umieść filtr"
     }
+  },
+  "vi": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Moka",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Đang tải...",
+      "paused": "Tạm dừng",
+      "enjoy": "Thưởng thức cà phê của bạn",
+      "inverted": "Đảo ngược"
+    },
+    "grind": ["cà phê espresso", "Cực tốt", "tốt", "Khá", "Trung bình", "phổ thông", "giá rẻ"],
+    "step": {
+      "pour": "Đổ nước",
+      "add": "thêm cà phê",
+      "stir": "khuấy",
+      "wait": "chờ",
+      "place": "Đặt pít tông",
+      "press": "nhấn",
+      "bloom": "Hoa",
+      "lid": "Đậy nắp lại",
+      "swirl": "Xoáy",
+      "invert": "Đảo ngược",
+      "brew": "Brew",
+      "heat": "Đun nóng nước",
+      "filter": "Đặt bộ lọc"
+    }
   }
 }
