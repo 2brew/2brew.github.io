@@ -127,6 +127,19 @@ var app = (function () {
     function set_style(node, key, value, important) {
         node.style.setProperty(key, value, important ? 'important' : '');
     }
+    function select_option(select, value) {
+        for (let i = 0; i < select.options.length; i += 1) {
+            const option = select.options[i];
+            if (option.__value === value) {
+                option.selected = true;
+                return;
+            }
+        }
+    }
+    function select_value(select) {
+        const selected_option = select.querySelector(':checked') || select.options[0];
+        return selected_option && selected_option.__value;
+    }
     function toggle_class(element, name, toggle) {
         element.classList[toggle ? 'add' : 'remove'](name);
     }
@@ -1649,6 +1662,45 @@ var app = (function () {
     		filter: "Umieść filtr"
     	}
     };
+    var be = {
+    	system: {
+    		aeropress: "Аэрапрэс",
+    		moka: "Гейзер",
+    		v60: "V60"
+    	},
+    	global: {
+    		g: "г",
+    		ml: "мл",
+    		loading: "Загрузка...",
+    		paused: "Паўза",
+    		enjoy: "Кава гатова!",
+    		inverted: "Інвертаваны"
+    	},
+    	grind: [
+    		"Для эспрэса",
+    		"Вельмі дробны",
+    		"Дробны",
+    		"Сярэдне дробны",
+    		"Сярэдні",
+    		"Сярэдне буйны",
+    		"Буйны"
+    	],
+    	step: {
+    		pour: "Налівайце ваду",
+    		add: "Дадайце кавы",
+    		stir: "Замінайце",
+    		wait: "Чакайце",
+    		place: "Змясціце прэс",
+    		press: "Цісніце прэс",
+    		bloom: "Квітненне",
+    		lid: "Пастаўце накрыўку",
+    		swirl: "Круціце",
+    		invert: "Перавярніце",
+    		brew: "Варыце",
+    		heat: "Нагрэйце ваду",
+    		filter: "Пакладзіце фільтр"
+    	}
+    };
     var fil = {
     	system: {
     		aeropress: "AeroPress",
@@ -1727,15 +1779,58 @@ var app = (function () {
     		filter: "Setzen Sie den Filter ein"
     	}
     };
+    var pt = {
+    	system: {
+    		aeropress: "AeroPress",
+    		moka: "Moka",
+    		v60: "V60"
+    	},
+    	global: {
+    		g: "g",
+    		ml: "ml",
+    		loading: "Carregando...",
+    		paused: "Pausado",
+    		enjoy: "Aprecie seu café",
+    		inverted: "Invertido"
+    	},
+    	grind: [
+    		"Espresso",
+    		"Extrafino",
+    		"Fino",
+    		"Médio-fino",
+    		"Médio",
+    		"Médio-grosso",
+    		"Grosso"
+    	],
+    	step: {
+    		pour: "Despeje a água",
+    		add: "Adicione café",
+    		stir: "Mexa",
+    		wait: "Espere",
+    		place: "Coloque a prensa",
+    		press: "Prense",
+    		bloom: "Infuse",
+    		lid: "Ponha a tampa",
+    		swirl: "Mexa circularmente",
+    		invert: "Inverta",
+    		brew: "Prepare o café",
+    		heat: "Aqueça a água",
+    		filter: "Coloque o filtro"
+    	}
+    };
     var i18n = {
     	en: en,
     	ru: ru,
     	pl: pl,
+    	be: be,
     	fil: fil,
-    	de: de
+    	de: de,
+    	pt: pt
     };
 
-    const initialLang = (['en', 'ru'].indexOf(localStorage.getItem('lang')) !== -1) ? localStorage.getItem('lang') : 'en';
+    const LANGUAGE_LIST = ['en', 'ru', 'pl', 'de', 'fil', 'pt', 'be'];
+
+    const initialLang = (LANGUAGE_LIST.indexOf(localStorage.getItem('lang')) !== -1) ? localStorage.getItem('lang') : 'en';
 
     const translations = writable({
       tt: i18n[initialLang],
@@ -1746,7 +1841,7 @@ var app = (function () {
       return pathOr(ttObj.tt, path, def || path);
     }
     function setLanguage(lang = 'en') {
-      if (['en', 'ru', 'pl', 'de', 'fil'].indexOf(lang) !== -1) {
+      if (LANGUAGE_LIST.indexOf(lang) !== -1) {
         localStorage.setItem('lang', lang);
         translations.set({ tt: i18n[lang], language: lang });
       }
@@ -1867,19 +1962,25 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (79:4) {#each systems as item}
-    function create_each_block(ctx) {
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[9] = list[i];
+    	return child_ctx;
+    }
+
+    // (82:4) {#each systems as item}
+    function create_each_block_1(ctx) {
     	let div2;
     	let a;
     	let div0;
-    	let raw_value = /*item*/ ctx[5].icon + "";
+    	let raw_value = /*item*/ ctx[9].icon + "";
     	let t0;
     	let div1;
-    	let t1_value = tt(/*$translations*/ ctx[0], /*item*/ ctx[5].name) + "";
+    	let t1_value = tt(/*$translations*/ ctx[1], /*item*/ ctx[9].name) + "";
     	let t1;
     	let a_href_value;
     	let a_title_value;
@@ -1894,16 +1995,16 @@ var app = (function () {
     			div1 = element("div");
     			t1 = text(t1_value);
     			t2 = space();
-    			attr_dev(div0, "class", "system-icon svelte-1ow6m5r");
-    			add_location(div0, file, 84, 10, 1812);
-    			attr_dev(div1, "class", "system-name svelte-1ow6m5r");
-    			add_location(div1, file, 87, 10, 1895);
-    			attr_dev(a, "class", "system-button bh svelte-1ow6m5r");
-    			attr_dev(a, "href", a_href_value = "#/" + /*item*/ ctx[5].url);
-    			attr_dev(a, "title", a_title_value = tt(/*$translations*/ ctx[0], /*item*/ ctx[5].name));
-    			add_location(a, file, 80, 8, 1686);
-    			attr_dev(div2, "class", "item svelte-1ow6m5r");
-    			add_location(div2, file, 79, 6, 1659);
+    			attr_dev(div0, "class", "system-icon svelte-tkow9t");
+    			add_location(div0, file, 87, 10, 1847);
+    			attr_dev(div1, "class", "system-name svelte-tkow9t");
+    			add_location(div1, file, 90, 10, 1930);
+    			attr_dev(a, "class", "system-button bh svelte-tkow9t");
+    			attr_dev(a, "href", a_href_value = "#/" + /*item*/ ctx[9].url);
+    			attr_dev(a, "title", a_title_value = tt(/*$translations*/ ctx[1], /*item*/ ctx[9].name));
+    			add_location(a, file, 83, 8, 1721);
+    			attr_dev(div2, "class", "item svelte-tkow9t");
+    			add_location(div2, file, 82, 6, 1694);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -1916,9 +2017,9 @@ var app = (function () {
     			append_dev(div2, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$translations*/ 1 && t1_value !== (t1_value = tt(/*$translations*/ ctx[0], /*item*/ ctx[5].name) + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*$translations*/ 2 && t1_value !== (t1_value = tt(/*$translations*/ ctx[1], /*item*/ ctx[9].name) + "")) set_data_dev(t1, t1_value);
 
-    			if (dirty & /*$translations*/ 1 && a_title_value !== (a_title_value = tt(/*$translations*/ ctx[0], /*item*/ ctx[5].name))) {
+    			if (dirty & /*$translations*/ 2 && a_title_value !== (a_title_value = tt(/*$translations*/ ctx[1], /*item*/ ctx[9].name))) {
     				attr_dev(a, "title", a_title_value);
     			}
     		},
@@ -1929,9 +2030,45 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(82:4) {#each systems as item}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (117:2) {#each languages as language}
+    function create_each_block(ctx) {
+    	let option;
+    	let t_value = /*language*/ ctx[6] + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*language*/ ctx[6];
+    			option.value = option.__value;
+    			add_location(option, file, 117, 4, 2601);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(79:4) {#each systems as item}",
+    		source: "(117:2) {#each languages as language}",
     		ctx
     	});
 
@@ -1954,11 +2091,17 @@ var app = (function () {
     	let a1;
     	let t7;
     	let t8;
-    	let div2;
-    	let t9_value = /*$translations*/ ctx[0].language + "";
-    	let t9;
+    	let select;
     	let dispose;
-    	let each_value = /*systems*/ ctx[1];
+    	let each_value_1 = /*systems*/ ctx[2];
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*languages*/ ctx[3];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -1971,8 +2114,8 @@ var app = (function () {
     			nav = element("nav");
     			div0 = element("div");
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
     			}
 
     			t0 = space();
@@ -1990,27 +2133,32 @@ var app = (function () {
     			a1.textContent = "github.com/2brew/2brew.github.io";
     			t7 = text(".");
     			t8 = space();
-    			div2 = element("div");
-    			t9 = text(t9_value);
-    			add_location(div0, file, 77, 2, 1619);
-    			add_location(nav, file, 76, 0, 1611);
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(div0, file, 80, 2, 1654);
+    			add_location(nav, file, 79, 0, 1646);
     			attr_dev(a0, "target", "_blank");
     			attr_dev(a0, "rel", "noreferrer");
     			attr_dev(a0, "href", "https://github.com/2brew/2brew.github.io/issues");
-    			attr_dev(a0, "class", "svelte-1ow6m5r");
-    			add_location(a0, file, 97, 4, 2096);
-    			add_location(br0, file, 101, 4, 2221);
-    			add_location(br1, file, 103, 4, 2256);
+    			attr_dev(a0, "class", "svelte-tkow9t");
+    			add_location(a0, file, 100, 4, 2131);
+    			add_location(br0, file, 104, 4, 2256);
+    			add_location(br1, file, 106, 4, 2291);
     			attr_dev(a1, "target", "_blank");
     			attr_dev(a1, "rel", "noreferrer");
     			attr_dev(a1, "href", "https://github.com/2brew/2brew.github.io");
-    			attr_dev(a1, "class", "svelte-1ow6m5r");
-    			add_location(a1, file, 105, 4, 2298);
-    			attr_dev(div1, "class", "author-info svelte-1ow6m5r");
-    			add_location(div1, file, 95, 2, 2021);
-    			add_location(main, file, 94, 0, 2012);
-    			attr_dev(div2, "class", "lang bb svelte-1ow6m5r");
-    			add_location(div2, file, 112, 0, 2456);
+    			attr_dev(a1, "class", "svelte-tkow9t");
+    			add_location(a1, file, 108, 4, 2333);
+    			attr_dev(div1, "class", "author-info svelte-tkow9t");
+    			add_location(div1, file, 98, 2, 2056);
+    			add_location(main, file, 97, 0, 2047);
+    			attr_dev(select, "class", "lang bb svelte-tkow9t");
+    			if (/*selectedLang*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[5].call(select));
+    			add_location(select, file, 115, 0, 2491);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2019,8 +2167,8 @@ var app = (function () {
     			insert_dev(target, nav, anchor);
     			append_dev(nav, div0);
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div0, null);
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div0, null);
     			}
 
     			insert_dev(target, t0, anchor);
@@ -2036,14 +2184,47 @@ var app = (function () {
     			append_dev(div1, a1);
     			append_dev(div1, t7);
     			insert_dev(target, t8, anchor);
-    			insert_dev(target, div2, anchor);
-    			append_dev(div2, t9);
-    			if (remount) dispose();
-    			dispose = listen_dev(div2, "click", /*toggleLang*/ ctx[2], false, false, false);
+    			insert_dev(target, select, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select, null);
+    			}
+
+    			select_option(select, /*selectedLang*/ ctx[0]);
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(select, "change", /*select_change_handler*/ ctx[5]),
+    				listen_dev(select, "change", /*toggleLang*/ ctx[4], false, false, false)
+    			];
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*systems, tt, $translations*/ 3) {
-    				each_value = /*systems*/ ctx[1];
+    			if (dirty & /*systems, tt, $translations*/ 6) {
+    				each_value_1 = /*systems*/ ctx[2];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(div0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*languages*/ 8) {
+    				each_value = /*languages*/ ctx[3];
     				validate_each_argument(each_value);
     				let i;
 
@@ -2055,7 +2236,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div0, null);
+    						each_blocks[i].m(select, null);
     					}
     				}
 
@@ -2066,18 +2247,21 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*$translations*/ 1 && t9_value !== (t9_value = /*$translations*/ ctx[0].language + "")) set_data_dev(t9, t9_value);
+    			if (dirty & /*selectedLang*/ 1) {
+    				select_option(select, /*selectedLang*/ ctx[0]);
+    			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			destroy_each(each_blocks, detaching);
+    			destroy_each(each_blocks_1, detaching);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			if (detaching) detach_dev(t8);
-    			if (detaching) detach_dev(div2);
-    			dispose();
+    			if (detaching) detach_dev(select);
+    			destroy_each(each_blocks, detaching);
+    			run_all(dispose);
     		}
     	};
 
@@ -2095,7 +2279,7 @@ var app = (function () {
     function instance$1($$self, $$props, $$invalidate) {
     	let $translations;
     	validate_store(translations, "translations");
-    	component_subscribe($$self, translations, $$value => $$invalidate(0, $translations = $$value));
+    	component_subscribe($$self, translations, $$value => $$invalidate(1, $translations = $$value));
 
     	const systems = [
     		{
@@ -2115,13 +2299,11 @@ var app = (function () {
     		}
     	];
 
-    	const languages = ["en", "ru", "pl", "de", "fil"];
-    	let nextLang = "ru";
+    	const languages = LANGUAGE_LIST;
+    	let selectedLang = $translations.language;
 
     	function toggleLang() {
-    		setLanguage(nextLang);
-    		const index = languages.indexOf(nextLang);
-    		nextLang = languages[index + 1] || "en";
+    		setLanguage(selectedLang);
     	}
 
     	const writable_props = [];
@@ -2133,27 +2315,41 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Home", $$slots, []);
 
+    	function select_change_handler() {
+    		selectedLang = select_value(this);
+    		$$invalidate(0, selectedLang);
+    		$$invalidate(3, languages);
+    	}
+
     	$$self.$capture_state = () => ({
     		resolveSystemIcon,
     		translations,
     		tt,
     		setLanguage,
+    		LANGUAGE_LIST,
     		systems,
     		languages,
-    		nextLang,
+    		selectedLang,
     		toggleLang,
     		$translations
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("nextLang" in $$props) nextLang = $$props.nextLang;
+    		if ("selectedLang" in $$props) $$invalidate(0, selectedLang = $$props.selectedLang);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [$translations, systems, toggleLang];
+    	return [
+    		selectedLang,
+    		$translations,
+    		systems,
+    		languages,
+    		toggleLang,
+    		select_change_handler
+    	];
     }
 
     class Home extends SvelteComponentDev {

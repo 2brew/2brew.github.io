@@ -1,6 +1,6 @@
 <script>
   import { resolveSystemIcon } from "../utils/common";
-  import { translations, tt, setLanguage } from "../store/tt";
+  import { translations, tt, setLanguage, LANGUAGE_LIST } from "../store/tt";
 
   const systems = [
     {
@@ -11,13 +11,11 @@
     { name: "system.v60", url: "v_60", icon: resolveSystemIcon("v_60") },
     { name: "system.moka", url: "moka", icon: resolveSystemIcon("moka") },
   ];
-  const languages = ["en", "ru", "pl", "de", "fil"];
-  let nextLang = "ru";
+  const languages = LANGUAGE_LIST;
+  let selectedLang = $translations.language;
 
   function toggleLang() {
-    setLanguage(nextLang);
-    const index = languages.indexOf(nextLang);
-    nextLang = languages[index + 1] || "en";
+    setLanguage(selectedLang);
   }
 </script>
 
@@ -52,6 +50,7 @@
     padding: 15px 0;
   }
   .lang {
+    display: none;
     position: absolute;
     width: 60px;
     height: 60px;
@@ -60,8 +59,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    appearance: none;
     left: 20px;
     cursor: pointer;
+    text-align: center;
+    font-size: 17px;
+    border: none;
   }
   .author-info {
     width: 100%;
@@ -110,4 +113,8 @@
   </div>
 </main>
 
-<div class="lang bb" on:click={toggleLang}>{$translations.language}</div>
+<select bind:value={selectedLang} class="lang bb" on:change={toggleLang}>
+  {#each languages as language}
+    <option value={language}>{language}</option>
+  {/each}
+</select>
