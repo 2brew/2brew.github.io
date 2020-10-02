@@ -271,5 +271,44 @@
       "heat": "Aqueça a água",
       "filter": "Coloque o filtro"
     }
+  },
+  "it": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Caffettiera",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "g",
+      "ml": "ml",
+      "loading": "Caricamento...",
+      "paused": "In pausa",
+      "enjoy": "Goiditi il tuo caffè",
+      "inverted": "Invertito"
+    },
+    "grind": [
+      "Espresso",
+      "Extra Fino",
+      "Fino",
+      "Medio Fino",
+      "Medio",
+      "Medio Grosso",
+      "Grosso"
+    ],
+    "step": {
+      "pour": "Versa acqua",
+      "add": "Aggiungi caffè",
+      "stir": "Agita",
+      "wait": "Aspetta",
+      "place": "Posiziona",
+      "press": "Premi",
+      "bloom": "Apri",
+      "lid": "Metti il coperchio",
+      "swirl": "Gira",
+      "invert": "Inverti",
+      "brew": "Miscela",
+      "heat": "Riscalda l'acqua",
+      "filter": "Metti il filtro"
+    }
   }
 }
