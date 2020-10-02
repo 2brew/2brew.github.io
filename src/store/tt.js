@@ -1,5 +1,5 @@
-import {writable} from 'svelte/store';
-import {pathOr} from '../utils/common';
+import { writable } from 'svelte/store';
+import { pathOr } from '../utils/common';
 import i18n from '../translation/i18n.json';
 
 const initialLang = (['en', 'ru'].indexOf(localStorage.getItem('lang')) !== -1) ? localStorage.getItem('lang') : 'en';
@@ -14,8 +14,8 @@ export function tt(ttObj, path, def) {
 };
 
 export function setLanguage(lang = 'en') {
-  if (['en', 'ru', 'pl'].indexOf(lang) !== -1) {
+  if (['en', 'ru', 'pl', 'de', 'fil'].indexOf(lang) !== -1) {
     localStorage.setItem('lang', lang);
-    translations.set({tt: i18n[lang], language: lang});
+    translations.set({ tt: i18n[lang], language: lang });
   }
 }
