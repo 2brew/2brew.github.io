@@ -1818,6 +1818,45 @@ var app = (function () {
     		filter: "Coloque o filtro"
     	}
     };
+    var it = {
+    	system: {
+    		aeropress: "AeroPress",
+    		moka: "Caffettiera",
+    		v60: "V60"
+    	},
+    	global: {
+    		g: "g",
+    		ml: "ml",
+    		loading: "Caricamento...",
+    		paused: "In pausa",
+    		enjoy: "Goiditi il tuo caffè",
+    		inverted: "Invertito"
+    	},
+    	grind: [
+    		"Espresso",
+    		"Extra Fino",
+    		"Fino",
+    		"Medio Fino",
+    		"Medio",
+    		"Medio Grosso",
+    		"Grosso"
+    	],
+    	step: {
+    		pour: "Versa acqua",
+    		add: "Aggiungi caffè",
+    		stir: "Agita",
+    		wait: "Aspetta",
+    		place: "Posiziona",
+    		press: "Premi",
+    		bloom: "Apri",
+    		lid: "Metti il coperchio",
+    		swirl: "Gira",
+    		invert: "Inverti",
+    		brew: "Miscela",
+    		heat: "Riscalda l'acqua",
+    		filter: "Metti il filtro"
+    	}
+    };
     var i18n = {
     	en: en,
     	ru: ru,
@@ -1825,10 +1864,11 @@ var app = (function () {
     	be: be,
     	fil: fil,
     	de: de,
-    	pt: pt
+    	pt: pt,
+    	it: it
     };
 
-    const LANGUAGE_LIST = ['en', 'ru', 'pl', 'de', 'fil', 'pt', 'be'];
+    const LANGUAGE_LIST = ['en', 'be', 'de', 'fil', 'it', 'ru', 'pl', 'pt',];
 
     const initialLang = (LANGUAGE_LIST.indexOf(localStorage.getItem('lang')) !== -1) ? localStorage.getItem('lang') : 'en';
 

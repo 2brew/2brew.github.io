@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { pathOr } from '../utils/common';
 import i18n from '../translation/i18n.json';
 
-export const LANGUAGE_LIST = ['en', 'ru', 'pl', 'de', 'fil', 'pt', 'be'];
+export const LANGUAGE_LIST = ['en', 'be', 'de', 'fil', 'it', 'ru', 'pl', 'pt',];
 
 const initialLang = (LANGUAGE_LIST.indexOf(localStorage.getItem('lang')) !== -1) ? localStorage.getItem('lang') : 'en';
 
