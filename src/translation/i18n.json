@@ -121,6 +121,36 @@
       "brew": "i-brew",
       "heat": "painitin",
       "filter": "i-filter"
+  },
+  "de": {
+    "system": {
+      "aeropress": "AeroPress",
+      "moka": "Kaffeemaschine",
+      "v60": "V60"
+    },
+    "global": {
+      "g": "G",
+      "ml": "ml",
+      "loading": "Landung...",
+      "paused": "Pause",
+      "enjoy": "Der Kaffee ist fertig!",
+      "inverted": "Invertiert"
+    },
+    "grind": ["Ausgedrückt", "Extra Fein", "Fein", "Mittel Fein", "Mittel", "Mittel Grob", "Grob"],
+    "step": {
+      "pour": "Gieße Wasser",
+      "add": "Kaffee hinzufügen",
+      "stir": "Mischen Sie es",
+      "wait": "Warten Sie mal",
+      "place": "Setzen Sie die Presse",
+      "press": "Delikatnie wyciskaj",
+      "bloom": "Vorsichtig drücken",
+      "lid": "Bringen Sie die Abdeckung wieder an",
+      "swirl": "Im Kreis drehen",
+      "invert": "Umdrehen",
+      "brew": "Brauen Sie es",
+      "heat": "Wasser erhitzen",
+      "filter": "Setzen Sie den Filter ein"
     }
   }
 }
