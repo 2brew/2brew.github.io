@@ -38,5 +38,64 @@
         "time": 30
       }
     ]
+  },
+  {
+    "name": "tetsu-kasuya",
+    "title": "Tetsu Kasuya", 
+    "notes": "More info: https://en.philocoffea.com/blogs/blog/coffee-brewing-method",
+    "ingridients": {
+      "coffee": 20,
+      "water": 300,
+      "grind": 7,
+      "temp": 92,
+      "time": 210
+    },
+    "steps": [
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 40
+      },
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 40
+      },
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 40
+      },
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 25
+      },
+      {
+        "type": "pour",
+        "amount": 60,
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "time": 40
+      }
+    ]
   }
 ]
