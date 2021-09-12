@@ -97,5 +97,76 @@
         "time": 40
       }
     ]
+  },
+  {
+    "name": "james-hoffmann",
+    "title": "James Hoffmann", 
+    "ingridients": {
+      "coffee": 30,
+      "water": 500,
+      "grind": 4,
+      "temp": 100,
+      "time": 210
+    },
+    "steps": [
+      {
+        "type": "filter",
+        "notes": "Rinse paper filter with water just off the boil. This removes any paper taste and preheats the brewer",
+        "time": 10
+      },
+      {
+        "type": "add",
+        "notes": "Create well in the middle of the grounds",
+        "time": 10
+      },
+      {
+        "type": "pour",
+        "notes": "Add 2x coffee weight = 60g of bloom water",
+        "amount": 60,
+        "time": 10
+      },
+      {
+        "type": "swirl",
+        "notes": "Swirl the coffee slurry until evenly mixed",
+        "time": 5
+      },
+      {
+        "type": "bloom",
+        "notes": "Continue the bloom for up to 45s. This allows CO2 to escape which will improve extraction",
+        "time": 30
+      },
+      {
+        "type": "pour",
+        "notes": "Add water aiming for 60% of total brew weight = 300g in the next 30s",
+        "amount": 240,
+        "time": 30
+      },
+      {
+        "type": "pour",
+        "notes": "Add water aiming for 100% of the total brew weight = 500g in the next 30s. Pour a little slower than the first phase",
+        "amount": 200,
+        "time": 30
+      },
+      {
+        "type": "stir",
+        "notes": "Stir 1x clockwise and 1x anticlockwise with a spoon. This knocks off grounds from the side wall",
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "notes": "Allow V60 to drain a little",
+        "time": 10
+      },
+      {
+        "type": "swirl",
+        "notes": "Give V60 a gentle swirl",
+        "time": 5
+      },
+      {
+        "type": "wait",
+        "notes": "Let brew draw down. Aim to finish by t = 3:30",
+        "time": 85
+      }
+    ]
   }
 ]
