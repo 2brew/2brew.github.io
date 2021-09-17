@@ -3,7 +3,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "Moka",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "French Press"
     },
     "global": {
       "g": "g",
@@ -42,7 +43,8 @@
     "system": {
       "aeropress": "Аэропресс",
       "moka": "Гейзер",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "френч-пресс"
     },
     "global": {
       "g": "г",
@@ -81,7 +83,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "Kawiarka",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "French Press"
     },
     "global": {
       "g": "g",
@@ -120,7 +123,8 @@
     "system": {
       "aeropress": "Аэрапрэс",
       "moka": "Гейзер",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "French Press"
     },
     "global": {
       "g": "г",
@@ -159,7 +163,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "moka",
-      "v60": "v60"
+      "v60": "v60",
+      "frenchPress": "French Press"
     },
     "global": {
       "g": "g",
@@ -198,7 +203,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "Kaffeemaschine",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "Kaffeepresse"
     },
     "global": {
       "g": "G",
@@ -237,7 +243,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "Moka",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "French Press"
     },
     "global": {
       "g": "g",
@@ -276,7 +283,8 @@
     "system": {
       "aeropress": "AeroPress",
       "moka": "Caffettiera",
-      "v60": "V60"
+      "v60": "V60",
+      "frenchPress": "Caffettiera francese"
     },
     "global": {
       "g": "g",

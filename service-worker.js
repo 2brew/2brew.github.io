@@ -8,6 +8,7 @@ const PRECACHE_URLS = [
   '/public/aeropress.json',
   '/public/moka.json',
   '/public/v_60.json',
+  '/public/frenchPress.json',
   '/public/audio/end.wav',
   '/public/audio/stage.wav',
   '/public/audio/tick.wav',
