@@ -2,6 +2,7 @@ import {tt} from '../store/tt';
 
 import aeropress from '../assets/icons/aeropress.svg';
 import moka from '../assets/icons/moka.svg';
+import frenchPress from '../assets/icons/frenchpress.svg';
 import v60 from '../assets/icons/v60.svg';
 import _invert from '../assets/icons/_invert.svg';
 import _lid from '../assets/icons/_lid.svg';
@@ -33,6 +34,8 @@ export function resolveSystemIcon(type) {
       return moka;
     case 'aeropress':
       return aeropress;
+    case 'frenchPress':
+      return frenchPress;
   }
 }
 

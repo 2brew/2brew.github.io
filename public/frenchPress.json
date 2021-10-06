@@ -1,0 +1,21 @@
+[{
+    "name": "classic",
+    "title": "Classic", 
+    "notes": "A classic take on French Press coffee.",
+    "ingridients": {
+      "coffee": 56,
+      "water": 235,
+      "grind": 7,
+      "temp": 100,
+      "inverted": false,
+      "time": 400
+    },
+    "steps": [
+      {"type": "pour", "amount": 115, "time": 3},
+      {"type": "bloom", "time": 60},
+      {"type": "stir", "time": 5},
+      {"type": "pour", "amount": 125, "time": 3},
+      {"type": "wait", "time": 180},
+      {"type": "press", "time": 4}
+    ]
+}]
