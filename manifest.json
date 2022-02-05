@@ -1,27 +1,48 @@
 {
   "name": "2Brew",
   "short_name": "2Brew",
-  "icons": [{
-    "src": "public/icon/icon_128x128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    }, {
-      "src": "public/icon/icon_144x144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    }, {
-      "src": "public/icon/icon_152x152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    }, {
-      "src": "public/icon/icon_192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+  "icons": [
+    {
+      "src": "public/icon/maskable_icon_48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "public/icon/icon_512x512.png",
+      "src": "public/icon/maskable_icon_72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/icon/maskable_icon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/icon/maskable_icon_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/icon/maskable_icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/icon/maskable_icon_384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/icon/maskable_icon_512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/",
