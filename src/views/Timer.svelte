@@ -34,6 +34,8 @@
 
   let pausedTime = false;
 
+  let selectedRatio;
+
   onMount(() => {
     fetchCurrentRecipe(params.type, params.name);
   });
@@ -41,6 +43,10 @@
   onDestroy(() => {
     destroyTimer();
   });
+
+  function selectRatio(event) {
+    fetchCurrentRecipe(params.type, params.name, event.target.value);
+  }
 
   function goToNext() {
     pausedTime = false;
@@ -90,6 +96,18 @@
       {$recipe.notes}
     </div>
   {/if}
+  <div>
+    <span class="recipe-ratio">{tt( $translations, "global.ratio" )}</span>
+    <select
+      class="recipe-ratio-select"
+      bind:value={selectedRatio}
+      on:change={selectRatio}
+    >
+      {#each $recipe.ratios as ratio}
+        <option value={ratio}>{ratio}</option>
+      {/each}
+    </select>
+  </div>
   <div class="timer-wrapper">
    {#if $timer.step !== null && $timer.step < $recipe.steps.length-1}
       <div class="actions bh next-step" on:click={goToNext} transition:scale|local>
@@ -326,7 +344,7 @@
 .step-time .step-icon {
   width: 15px;
 }
-.recipe-notes, .recipe-title {
+.recipe-notes, .recipe-title, .recipe-ratio {
   width: 100%;
   color: var(--second-text-color);
   margin: 10px 0;
@@ -348,6 +366,9 @@
   min-height: 49px;
   flex-flow: wrap;
   padding-left: 2%;
+}
+.recipe-ratio-select {
+  font-size: large;
 }
 .recipe-pad {
   width: 30%;
