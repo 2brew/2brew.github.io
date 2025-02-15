@@ -1,7 +1,7 @@
 <script>
   import {push, link} from 'svelte-spa-router'
   export let href;
-  export let nomargin;
+  export let nomargin = undefined;
 </script>
 
 <div class="back">
