@@ -37,13 +37,44 @@ export const clearRecipe = () => {
   recipe.set({steps: [], ingridients: {}, error: null, isFetching: true});
 };
 
-export const fetchCurrentRecipe = async (type, name) => {
+export const fetchCurrentRecipe = async (type, name, recipeRatio=1) => {
   let currentRecipe = null;
   recipe.set({title: null, notes: null, steps: [], ingridients: {}, error: null, isFetching: true});
   await fetchRecipes(type);
   currentRecipe = get(recipes)[type] ? get(recipes)[type].find((item) => item.name === name) : null;
+
+  const calculatedIngredients = {
+    ...currentRecipe.ingridients,
+    water: currentRecipe.ingridients.water * recipeRatio,
+    coffee: currentRecipe.ingridients.coffee * recipeRatio,
+  }
+  console.log("calculatedIngredients: ", calculatedIngredients);
+  const calculatedSteps = currentRecipe.steps.map((step) => {
+    if (step.type === 'pour') {
+      return {
+        ...step,
+        amount: step.amount * recipeRatio
+      };
+    }
+    return step;
+  });
+  console.log("currentRecipe: ", currentRecipe);
+  console.log("calculatedSteps: ", calculatedSteps);
   if (currentRecipe) {
-    recipe.set({title: currentRecipe.title, notes: currentRecipe.notes, steps: currentRecipe.steps, ingridients: currentRecipe.ingridients, error: null, isFetching: false});
+    recipe.set({
+      title: currentRecipe.title,
+      notes: currentRecipe.notes,
+      ingridients: calculatedIngredients,
+      steps: calculatedSteps,
+      error: null,
+      isFetching: false,
+      ratios: [
+        1,
+        0.5,
+        1.5,
+        2,
+      ]
+    });
   } else {
     recipe.set({steps: [], ingridients: {}, error: {response: {status: 404, statusText: 'Not Found'}}, isFetching: false});
   }

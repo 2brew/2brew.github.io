@@ -12,7 +12,8 @@
       "loading": "Loading...",
       "paused": "Paused",
       "enjoy": "Enjoy your coffee",
-      "inverted": "Inverted"
+      "inverted": "Inverted",
+      "ratio": "Recipe ratio"
     },
     "grind": [
       "Espresso",
